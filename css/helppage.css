@@ -1,0 +1,16 @@
+.helppage {
+    color: white;
+    background-color: black;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 15px;
+}
+img, video {
+    max-width: calc(100% - 30px);
+    width: 100%;
+    height: auto;
+    margin: 15px 0;
+}
+a {
+    color: #147EFF;
+}
