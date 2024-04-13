@@ -1,4 +1,12 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+import createNextIntlPlugin from 'next-intl/plugin'
 
-export default nextConfig;
+const withNextIntl = createNextIntlPlugin('./language/i18n.ts')
+
+const nextConfig = {
+  experimental: {
+    webpackBuildWorker: true,
+  },
+}
+
+export default withNextIntl(nextConfig)
