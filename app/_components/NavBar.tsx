@@ -1,5 +1,6 @@
 'use client'
 
+import { link } from 'fs'
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -19,6 +20,13 @@ import Logo from '../logo.png'
 
 export default function NavBar() {
   const t = useTranslations()
+  const links = [
+    { link: '/docs', name: t('document') },
+    { link: '/about', name: t('about') },
+    { link: 'https://gitee.com/FTS-537Studio', name: t('gitee') },
+    { link: 'https://github.com/537Studio', name: t('github') },
+  ]
+
   const { setTheme } = useTheme()
   return (
     <div className="sticky top-0 flex h-12 w-full items-center justify-between border-b-2 border-solid border-slate-100 bg-background px-3 dark:border-slate-900">
@@ -37,46 +45,22 @@ export default function NavBar() {
         <div className="flex gap-2">
           <NavigationMenu>
             <NavigationMenuList className="flex gap-3">
-              <NavigationMenuItem>
-                <Link href="/docs" legacyBehavior passHref>
-                  <NavigationMenuLink className="flex items-center gap-1 text-slate-300 dark:text-slate-600 ">
-                    <span className="text-[15px]">{t('document')}</span>
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Link href="/about" legacyBehavior passHref>
-                  <NavigationMenuLink className="flex items-center gap-1 text-slate-300 dark:text-slate-600 ">
-                    <span className="text-[15px]">{t('about')}</span>
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Link
-                  href="https://gitee.com/FTS-537Studio"
-                  legacyBehavior
-                  passHref
-                >
-                  <NavigationMenuLink className="flex items-center gap-1 text-slate-300 dark:text-slate-600 ">
-                    <span className="text-[15px]">{t('gitee')}</span>
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Link
-                  href="https://github.com/537Studio"
-                  legacyBehavior
-                  passHref
-                >
-                  <NavigationMenuLink className="flex items-center gap-1 text-slate-300 dark:text-slate-600 ">
-                    <span className="text-[15px]">{t('github')}</span>
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
+              {links.map((item, index) => {
+                return (
+                  <NavigationMenuItem key={'NavBarMenuLinkKeyIndex' + index}>
+                    <Link href={item.link} legacyBehavior passHref>
+                      <NavigationMenuLink className="flex items-center gap-1 text-slate-300 dark:text-slate-600 ">
+                        <span className="text-[15px]">{item.name}</span>
+                      </NavigationMenuLink>
+                    </Link>
+                  </NavigationMenuItem>
+                )
+              })}
             </NavigationMenuList>
           </NavigationMenu>
         </div>
       </div>
+      <div></div>
     </div>
   )
 }
