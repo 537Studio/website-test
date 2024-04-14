@@ -1,6 +1,5 @@
 'use client'
 
-import { link } from 'fs'
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -8,15 +7,15 @@ import {
   NavigationMenuList,
 } from '@radix-ui/react-navigation-menu'
 import React from 'react'
-import { CiCircleInfo } from 'react-icons/ci'
-import { IoDocumentOutline } from 'react-icons/io5'
 import { useTranslations } from 'next-intl'
-import { useTheme } from 'next-themes'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 import Logo from '../logo.png'
+
+const LightHandle = dynamic(() => import('./LightHandle'), { ssr: false })
 
 export default function NavBar() {
   const t = useTranslations()
@@ -27,7 +26,6 @@ export default function NavBar() {
     { link: 'https://github.com/537Studio', name: t('github') },
   ]
 
-  const { setTheme } = useTheme()
   return (
     <div className="sticky top-0 flex h-12 w-full items-center justify-between border-b-2 border-solid border-slate-100 bg-background px-3 dark:border-slate-900">
       <div className="flex items-center gap-3">
@@ -49,7 +47,7 @@ export default function NavBar() {
                 return (
                   <NavigationMenuItem key={'NavBarMenuLinkKeyIndex' + index}>
                     <Link href={item.link} legacyBehavior passHref>
-                      <NavigationMenuLink className="flex items-center gap-1 text-slate-300 dark:text-slate-600 ">
+                      <NavigationMenuLink className="flex items-center gap-1 text-slate-400 dark:text-slate-600 ">
                         <span className="text-[15px]">{item.name}</span>
                       </NavigationMenuLink>
                     </Link>
@@ -60,7 +58,7 @@ export default function NavBar() {
           </NavigationMenu>
         </div>
       </div>
-      <div></div>
+      <LightHandle />
     </div>
   )
 }

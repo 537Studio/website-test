@@ -35,6 +35,28 @@
     --radius: 0.5rem;
   }
 
+  .sb * {
+    --sb-track-color: rgba(0, 0, 0, 0);
+    --sb-thumb-color: var(--accent);
+    --sb-size: 15px;
+
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+
+  .sb *::-webkit-scrollbar {
+    width: var(--sb-size);
+  }
+
+  .sb *::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 10px;
+  }
+
+  .sb *::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 10px;
+  }
+
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;

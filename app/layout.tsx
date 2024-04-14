@@ -1,11 +1,9 @@
 import { NextIntlClientProvider, useMessages } from 'next-intl'
-import { Inter } from 'next/font/google'
 import type { Metadata } from 'next'
 
 import './globals.css'
 
 import { getTranslations } from 'next-intl/server'
-import { useTheme } from 'next-themes'
 
 import { ThemeProvider } from '@/components/theme-provider'
 
@@ -30,7 +28,7 @@ export default function RootLayout({
 
   return (
     <html lang="zh" suppressHydrationWarning>
-      <body>
+      <body className="sb h-screen w-full">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ThemeProvider
             attribute="class"
