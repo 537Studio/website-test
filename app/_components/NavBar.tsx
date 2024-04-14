@@ -27,7 +27,7 @@ export default function NavBar() {
   ]
 
   return (
-    <div className="sticky top-0 flex h-12 w-full items-center justify-between border-b-2 border-solid border-slate-100 bg-background px-3 dark:border-slate-900">
+    <div className="fixed top-0 flex h-12 w-full items-center justify-between border-b-2 border-solid border-slate-100 bg-background px-3 dark:border-slate-900">
       <div className="flex items-center gap-3">
         <Link href={'/'}>
           <div className="flex items-center gap-2">

@@ -37,7 +37,9 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <NavBar />
-            {children}
+            <div className="h-full w-full pt-12 [box-sizing:border-box]">
+              {children}
+            </div>
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>
