@@ -1,19 +1,5 @@
 'use client'
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@radix-ui/react-dropdown-menu'
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-} from '@radix-ui/react-navigation-menu'
 import React from 'react'
 import { CiMenuFries } from 'react-icons/ci'
 import { useTranslations } from 'next-intl'
@@ -22,6 +8,20 @@ import Link from 'next/link'
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+} from '@/components/ui/navigation-menu'
 
 import Logo from '../logo.png'
 
@@ -70,23 +70,26 @@ export default function NavBar() {
       </div>
       <div className="flex items-center">
         <LightHandle />
-        {/* <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full">
-          <div>
-            <CiMenuFries className="h-6 w-6 stroke-1" />
-          </div>
-        </Button> */}
         <DropdownMenu>
-          <DropdownMenuTrigger
-            className="block sm:hidden"
-            asChild
-          ></DropdownMenuTrigger>
+          <DropdownMenuTrigger className="block sm:hidden " asChild>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="flex h-8 w-8 items-center justify-center rounded-full"
+            >
+              <CiMenuFries className="h-5 w-5 stroke-[1.5px]" />
+            </Button>
+          </DropdownMenuTrigger>
           <DropdownMenuContent>
-            <DropdownMenuLabel>My Account</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>Profile</DropdownMenuItem>
-            <DropdownMenuItem>Billing</DropdownMenuItem>
-            <DropdownMenuItem>Team</DropdownMenuItem>
-            <DropdownMenuItem>Subscription</DropdownMenuItem>
+            {links.map((item, index) => {
+              return (
+                <DropdownMenuItem key={'NavBarMenuLinkKeyIndex' + index}>
+                  <Link href={item.link} legacyBehavior passHref>
+                    <span className="text-[15px]">{item.name}</span>
+                  </Link>
+                </DropdownMenuItem>
+              )
+            })}
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
