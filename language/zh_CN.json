@@ -4,5 +4,9 @@
   "document": "文档",
   "about": "关于",
   "github": "Github",
-  "gitee": "Gitee"
+  "gitee": "Gitee",
+  "phoneFirstLine": "537",
+  "phoneSecondLine": "Studio",
+  "computerFirstWord": "537-",
+  "computerSecondWord": "Studio"
 }

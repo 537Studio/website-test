@@ -1,8 +1,9 @@
+import Introduce from './_components/Introduce'
+
 export default function Home() {
   return (
-    <main className="min-h-full">
-      1<br />1<br />1<br />1<br />1<br />1<br />1<br />1<br />1<br />1<br />1
-      <br />
+    <main className="h-full w-full">
+      <Introduce></Introduce>
     </main>
   )
 }
