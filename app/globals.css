@@ -35,6 +35,8 @@
     --radius: 0.5rem;
 
     --slate-gradient: #cbd5e1;
+    --slate-shallow-top-color: #0f172a;
+    --slate-shallow-bottom-color: #94a3b8;
   }
 
   .sb * {
@@ -89,6 +91,8 @@
     --ring: 212.7 26.8% 83.9%;
 
     --slate-gradient: #334155;
+    --slate-shallow-top-color: #f8fafc;
+    --slate-shallow-bottom-color: #94a3b8;
   }
 }
 
@@ -144,23 +148,6 @@
     0px 35px 120px var(--tw-shadow-color);
 }
 
-.dark\:gradient-background-emerald {
-  /* background: linear-gradient(to bottom, var(--background), #047857); */
-  background: linear-gradient(to bottom, #334155, #047857);
-  -webkit-background-clip: text;
-  color: transparent;
-  display: inline-block;
-}
-
-.dark\:gradient-background-blue {
-  /* background: linear-gradient(to bottom, var(--background), #2563eb); */
-  background: linear-gradient(to bottom, #334155, #2563eb);
-
-  -webkit-background-clip: text;
-  color: transparent;
-  display: inline-block;
-}
-
 .gradient-background-emerald {
   background: linear-gradient(to bottom, var(--slate-gradient), #047857);
   -webkit-background-clip: text;
@@ -168,8 +155,35 @@
   display: inline-block;
 }
 
+.gradient-background-oscar {
+  /* background: linear-gradient(to bottom, var(--slate-gradient), #0e7490); */
+  background: linear-gradient(to bottom, var(--slate-gradient), #fcd34d);
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
 .gradient-background-blue {
   background: linear-gradient(to bottom, var(--slate-gradient), #2563eb);
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.gradient-background-sky {
+  /* background: linear-gradient(to bottom, var(--slate-gradient), #0284c7); */
+  background: linear-gradient(to bottom, var(--slate-gradient), #147eff);
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.gradient-background-shallow {
+  background: linear-gradient(
+    to bottom,
+    var(--slate-shallow-top-color),
+    var(--slate-shallow-bottom-color)
+  );
   -webkit-background-clip: text;
   color: transparent;
   display: inline-block;
