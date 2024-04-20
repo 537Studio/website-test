@@ -11,13 +11,15 @@ export default function Introduce() {
         {/* <h1 className="text-shadow-4xl gradient-background-emerald shadow-emerald-800 ">
           {t('computerFirstWord')}
         </h1> */}
-        <h1 className="text-shadow-4xl gradient-background-oscar shadow-yellow-800 ">
+        {/* <h1 className="text-shadow-4xl gradient-background-first shadow-yellow-800 "> */}
+        <h1 className="text-shadow-3.5xl gradient-background-first dark:text-white dark:shadow-yellow-600">
           {t('computerFirstWord')}
         </h1>
         {/* <h1 className="text-shadow-4xl gradient-background-blue shadow-blue-800">
           {t('computerSecondWord')}
         </h1> */}
-        <h1 className="text-shadow-4xl gradient-background-sky shadow-sky-800">
+        {/* <h1 className="text-shadow-4xl ml-3 gradient-background-last shadow-sky-800"> */}
+        <h1 className="text-shadow-3.5xl gradient-background-last ml-3 dark:text-white dark:shadow-sky-700">
           {t('computerSecondWord')}
         </h1>
       </div>

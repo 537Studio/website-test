@@ -34,9 +34,10 @@
 
     --radius: 0.5rem;
 
-    --slate-gradient: #cbd5e1;
-    --slate-shallow-top-color: #0f172a;
-    --slate-shallow-bottom-color: #94a3b8;
+    --gradient-first-top: #f59e0b;
+    --gradient-last-top: #0ea5e9;
+    --gradient-first-bottom: #b45309;
+    --gradient-last-bottom: #0369a1;
   }
 
   .sb * {
@@ -89,10 +90,6 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-
-    --slate-gradient: #334155;
-    --slate-shallow-top-color: #f8fafc;
-    --slate-shallow-bottom-color: #94a3b8;
   }
 }
 
@@ -131,6 +128,13 @@
     -5px 12px 45px var(--tw-shadow-color),
     5px 12px 45px var(--tw-shadow-color);
 }
+.text-shadow-3\.5xl {
+  text-shadow:
+    0px 22px 90px var(--tw-shadow-color),
+    -8px 18px 80px var(--tw-shadow-color),
+    8px 20px 80px var(--tw-shadow-color),
+    0px 32px 100px var(--tw-shadow-color);
+}
 
 .box-shadow-4xl {
   box-shadow:
@@ -148,41 +152,22 @@
     0px 35px 120px var(--tw-shadow-color);
 }
 
-.gradient-background-emerald {
-  background: linear-gradient(to bottom, var(--slate-gradient), #047857);
-  -webkit-background-clip: text;
-  color: transparent;
-  display: inline-block;
-}
-
-.gradient-background-oscar {
-  /* background: linear-gradient(to bottom, var(--slate-gradient), #0e7490); */
-  background: linear-gradient(to bottom, var(--slate-gradient), #fcd34d);
-  -webkit-background-clip: text;
-  color: transparent;
-  display: inline-block;
-}
-
-.gradient-background-blue {
-  background: linear-gradient(to bottom, var(--slate-gradient), #2563eb);
-  -webkit-background-clip: text;
-  color: transparent;
-  display: inline-block;
-}
-
-.gradient-background-sky {
-  /* background: linear-gradient(to bottom, var(--slate-gradient), #0284c7); */
-  background: linear-gradient(to bottom, var(--slate-gradient), #147eff);
-  -webkit-background-clip: text;
-  color: transparent;
-  display: inline-block;
-}
-
-.gradient-background-shallow {
+.gradient-background-first {
   background: linear-gradient(
     to bottom,
-    var(--slate-shallow-top-color),
-    var(--slate-shallow-bottom-color)
+    var(--gradient-first-top),
+    var(--gradient-first-bottom)
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.gradient-background-last {
+  background: linear-gradient(
+    to bottom,
+    var(--gradient-last-top),
+    var(--gradient-last-bottom)
   );
   -webkit-background-clip: text;
   color: transparent;
