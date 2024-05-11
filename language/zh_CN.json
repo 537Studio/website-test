@@ -6,8 +6,8 @@
   "about": "关于",
   "github": "Github",
   "gitee": "Gitee",
-  "phoneFirstLine": "537",
-  "phoneSecondLine": "Studio",
-  "computerFirstWord": "537",
-  "computerSecondWord": "Studio"
+  "firstWord": "537",
+  "secondWord": "Studio",
+  "getStarted": "开始体验",
+  "joinUs": "加入我们"
 }
