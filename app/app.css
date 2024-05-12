@@ -1,9 +1,9 @@
-@@keyframes cardsLoad {
-  from {
+@keyframes cardsLoad {
+  31% {
     opacity: 0;
     scale: 0.95;
   }
-  to {
+  100% {
     opacity: 1;
     scale: 1;
   }
@@ -14,4 +14,7 @@
   animation-timeline: view() !important;
   animation: cardsLoad ease;
   animation-range-end: cover 30%;
+  /* animation-range-start: cover -30%; */
+  opacity: 1;
+  scale: 1;
 }
