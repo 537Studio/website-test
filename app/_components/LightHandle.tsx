@@ -1,6 +1,8 @@
+'use client'
+
 import React from 'react'
 import { CiDark, CiLight } from 'react-icons/ci'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useTheme } from 'next-themes'
 
 import { Button } from '@/components/ui/button'

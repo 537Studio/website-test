@@ -1,5 +1,3 @@
-'use client'
-
 import React from 'react'
 import { CiMenuFries } from 'react-icons/ci'
 import { useTranslations } from 'next-intl'
@@ -12,8 +10,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import {
