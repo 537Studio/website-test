@@ -12,6 +12,7 @@ export const showItem = [
   {
     name: '537秒表',
     shortDescription: '少即是多',
+    image: undefined,
     size: '1.84MB',
     version: 'v1.0',
     platform: ['便捷式'],
@@ -19,6 +20,7 @@ export const showItem = [
   {
     name: '计算搬桶学号',
     shortDescription: '初出茅庐',
+    image: undefined,
     size: '1.84MB',
     version: 'v1.3.1',
     platform: ['x64'],

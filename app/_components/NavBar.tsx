@@ -18,6 +18,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from '@/components/ui/navigation-menu'
+import { getLinks } from '@/configs/navBar'
 
 import Logo from '../logo.png'
 
@@ -25,13 +26,7 @@ const LightHandle = dynamic(() => import('./LightHandle'), { ssr: false })
 
 export default function NavBar() {
   const t = useTranslations()
-  const links = [
-    { link: '/docs', name: t('document') },
-    { link: '/about', name: t('about') },
-    { link: 'https://gitee.com/FTS-537Studio', name: t('gitee') },
-    { link: 'https://github.com/537Studio', name: t('github') },
-  ]
-
+  const links = getLinks(t)
   return (
     <div className="fixed top-0 flex h-12 w-full items-center justify-between border-b-2 border-solid border-slate-100 bg-background px-3 dark:border-slate-900">
       <div className="flex items-center gap-3">
