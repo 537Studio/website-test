@@ -1,5 +1,9 @@
 @keyframes cardsLoad {
-  31% {
+  0% {
+    opacity: 0;
+    scale: 0.95;
+  }
+  30% {
     opacity: 0;
     scale: 0.95;
   }
@@ -13,7 +17,7 @@
   /* Selector will select all Markdown element */
   animation-timeline: view() !important;
   animation: cardsLoad ease;
-  animation-range-end: cover 30%;
+  animation-range-end: cover 40%;
   /* animation-range-start: cover -30%; */
   opacity: 1;
   scale: 1;
