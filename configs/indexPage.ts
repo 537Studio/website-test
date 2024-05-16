@@ -1,8 +1,15 @@
-import { MdDescription } from 'react-icons/md'
-
 import Text537 from '../app/images/537text.png'
+import liangmi from '../app/images/members/liangmi.png'
+import pipishan from '../app/images/members/pipishan.png'
+import rabbitMax from '../app/images/members/rabbit-max.png'
+import sean537 from '../app/images/members/sean537.png'
+import xinpro from '../app/images/members/xinpro.png'
+import {
+  showItems as showItemsType,
+  showMembers as showMembersType,
+} from '../types/indexPage.d'
 
-export const showItems: showItems = [
+export const showItems: showItemsType = [
   {
     name: '537文本编辑器',
     shortDescription: '非同凡"想"',
@@ -29,7 +36,7 @@ export const showItems: showItems = [
   },
 ]
 
-export const showMembers: showMembers = [
+export const showMembers: showMembersType = [
   {
     name: 'Sean537',
     shortDescription: {
@@ -49,6 +56,7 @@ export const showMembers: showMembers = [
       name: '山地奥斯卡537',
       href: 'https://space.bilibili.com/3493272892738031',
     },
+    image: sean537,
   },
   {
     name: '良米',
@@ -66,6 +74,7 @@ export const showMembers: showMembers = [
       name: '良米良米',
       href: 'https://space.bilibili.com/1964165864',
     },
+    image: liangmi,
   },
   {
     name: '皮皮善哇',
@@ -83,6 +92,7 @@ export const showMembers: showMembers = [
       name: '皮皮善哇',
       href: 'https://space.bilibili.com/511402656',
     },
+    image: pipishan,
   },
   {
     name: 'Rabbit max',
@@ -92,6 +102,7 @@ export const showMembers: showMembers = [
       name: '个人小站',
       href: 'https://cncyx.cn',
     },
+    image: rabbitMax,
   },
   {
     name: 'Xinpro',
@@ -109,5 +120,6 @@ export const showMembers: showMembers = [
       name: 'chentaiyang163@163.com',
       href: 'chentaiyang163@163.com',
     },
+    image: xinpro,
   },
 ]

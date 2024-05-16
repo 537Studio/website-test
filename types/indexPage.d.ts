@@ -1,3 +1,5 @@
+import { StaticImageData } from 'next/image'
+
 type showItems = showItem[]
 
 interface showItem {
@@ -13,13 +15,14 @@ type showMembers = showMember[]
 interface showMember {
   name: string
   shortDescription: shortDescription
+  image: StaticImageData | string
+  description: string
 
   gitee?: membersPlatform
   github?: membersPlatform
   bilibili?: membersPlatform
   blog?: membersPlatform
   email?: membersPlatform
-  description: string
 }
 
 interface shortDescription {
