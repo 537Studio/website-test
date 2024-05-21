@@ -3,13 +3,13 @@ import { useTranslations } from 'next-intl'
 import { StaticImport } from 'next/dist/shared/lib/get-img-props'
 import Image from 'next/image'
 
-import { showItemsType } from '@/configs/indexPage'
+import { showItems } from '@/configs/indexPage'
 
 export const ProductsCards = () => {
   const t = useTranslations()
   return (
     <div className="flex h-2/3 items-center justify-between gap-10 p-10  xl:h-3/4">
-      {showItemsType.map((item, index) => {
+      {showItems.map((item, index) => {
         if (index > 2) {
           return null
         }

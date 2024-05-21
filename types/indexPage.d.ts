@@ -15,9 +15,8 @@ type showMembers = showMember[]
 interface showMember {
   name: string
   shortDescription: shortDescription
-  image: StaticImageData | string
+  image: StaticImageData
   description: string
-
   gitee?: membersPlatform
   github?: membersPlatform
   bilibili?: membersPlatform
