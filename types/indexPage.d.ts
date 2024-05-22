@@ -22,6 +22,7 @@ interface showMember {
   bilibili?: membersPlatform
   blog?: membersPlatform
   email?: membersPlatform
+  [key: string]: any
 }
 
 interface shortDescription {

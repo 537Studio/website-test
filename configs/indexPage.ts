@@ -67,7 +67,7 @@ export const showMembers: showMembersType = [
     description:
       '一位在科技区和知识区徘徊的up主。\n 学习Rust/Go和各种前端框架的米。\n 废物一个。',
     github: {
-      name: 'Liangmi',
+      name: 'Liangmiqwq',
       href: 'https://github.com/liangmiqwq',
     },
     bilibili: {
