@@ -1,6 +1,6 @@
-import MemberCards from './_components/MemberCards'
 import { ProductsCards } from './_components/ProductsCards'
 import Title from './_components/Title'
+import MemberCards from './_components/memberCards'
 
 import './app.css'
 

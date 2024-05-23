@@ -1,13 +1,12 @@
-'use client'
-
 import React from 'react'
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { showMembers } from '@/configs/indexPage'
 import { membersPlatform } from '@/types/indexPage'
 import capitalizeWords from '@/util/capitalizeWords'
+import MemberProvider from './MemberProvider'
 
-export default function MemberCards() {
+export default async function MemberCards() {
   const memberExcludeKeys = ['name', 'shortDescription', 'description', 'image']
   const memberContact: string[][] = []
   for (let index = 0; index < showMembers.length; index++) {
@@ -20,7 +19,7 @@ export default function MemberCards() {
 
   return (
     <div className="overflow-hidden h-2/3 sm:h-2/5 w-[calc(100%_-_80px)] shadow-lg drop-shadow-lg bg-white m-10 p-5 mr-10 rounded-lg dark:bg-black">
-      <div className="grid h-full snap-x snap-mandatory auto-cols-[100%] grid-flow-col gap-2 lg:auto-cols-[50%] overflow-x-auto">
+      <MemberProvider>
         {showMembers.map((member, index) => {
           return (
             <div
@@ -91,7 +90,7 @@ export default function MemberCards() {
             </div>
           )
         })}
-      </div>
+      </MemberProvider>
     </div>
   )
 }
