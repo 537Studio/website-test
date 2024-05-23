@@ -19,7 +19,7 @@ export default function MemberCards() {
   }
 
   return (
-    <div className="overflow-hidden h-2/5 w-[calc(100%_-_40px)] shadow-lg drop-shadow-lg bg-white m-5 mr-10 rounded-lg dark:bg-black">
+    <div className="overflow-hidden h-2/3 sm:h-2/5 w-[calc(100%_-_80px)] shadow-lg drop-shadow-lg bg-white m-10 p-5 mr-10 rounded-lg dark:bg-black">
       <div className="grid h-full snap-x snap-mandatory auto-cols-[100%] grid-flow-col gap-2 lg:auto-cols-[50%] overflow-x-auto">
         {showMembers.map((member, index) => {
           return (
@@ -52,7 +52,7 @@ export default function MemberCards() {
                 ))}
               </div>
               {/*The accounts of the member*/}
-              <div className="flex items-center justify-start gap-5">
+              <div className="flex items-center justify-start gap-5 flex-warp">
                 {memberContact[index].map(
                   (contactMethod: string, indexContact) => {
                     let isAddAt
@@ -65,26 +65,25 @@ export default function MemberCards() {
                     } else {
                       isAddAt = ''
                     }
-                    console.log(
-                      showMembers[index][contactMethod] as membersPlatform,
-                    )
-
                     return (
-                      <div
-                        className="flex flex-col items-center"
-                        key={contactMethod + index + indexContact}
-                      >
-                        <div>{capitalizeWords(contactMethod)}</div>
-                        <a href={(showMembers[index][contactMethod] as membersPlatform).href} className='font-medium text-primary underline underline-offset-4'>
-                          {
-                            isAddAt + (
-                              showMembers[index][
-                              contactMethod
-                              ] as membersPlatform
-                            ).name
-                          }
-                        </a>
-                      </div>
+                      <>
+                        <div
+                          className="flex flex-col items-center"
+                          key={contactMethod + index + indexContact}
+                        >
+                          <div>{capitalizeWords(contactMethod)}</div>
+                          <a href={(showMembers[index][contactMethod] as membersPlatform).href} className='font-medium text-primary underline underline-offset-4'>
+                            {
+                              isAddAt + (
+                                showMembers[index][
+                                contactMethod
+                                ] as membersPlatform
+                              ).name
+                            }
+                          </a>
+                        </div>
+                        {index === 1 ? <br /> : null}
+                      </>
                     )
                   },
                 )}
