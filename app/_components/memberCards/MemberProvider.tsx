@@ -15,7 +15,7 @@ export default function MemberProvider({ children, page, theNumberOfMember }: Me
   const divRef = useRef<HTMLDivElement | null>(null);
   const [theNumberOfMemberInOnePage, setTheNumberOfMemberInOnePage] = useState(1)
   const [offsetWidth, setOffsetWidth] = useState(0)
-  const isAddTwenty = useRef(false)
+  const addMarginNumber = useRef(0)
 
   const theNumberOfPage = useMemo(() => {
     console.log(theNumberOfMember, theNumberOfMemberInOnePage)
@@ -24,27 +24,31 @@ export default function MemberProvider({ children, page, theNumberOfMember }: Me
 
   const marginLeft = useMemo(() => {
     let addNumber = 10
-    if (isAddTwenty.current) {
-      addNumber = 20
-    }
+    addNumber += addMarginNumber.current
     // return (offsetWidth + addNumber) * (theNumberOfPage - 1)
     // }, [theNumberOfPage, offsetWidth])
-    return (offsetWidth + addNumber) * page
-  }, [page, offsetWidth])
+    let realPage = page
+
+    if (realPage > theNumberOfPage) {
+      realPage -= Math.floor(realPage / theNumberOfPage) * theNumberOfPage
+    }
+    return (offsetWidth + addNumber) * realPage
+  }, [page, theNumberOfPage, offsetWidth])
 
   useEffect(() => {
     const handleResize = throttle(() => {
       setOffsetWidth((divRef.current as unknown as HTMLDivElement).offsetWidth)
       // set offset width to set marginLeft
       const windowsWidth = window.innerWidth;
-      isAddTwenty.current = true
       if (windowsWidth >= 1280) {
         setTheNumberOfMemberInOnePage(3)
+        addMarginNumber.current = 20
       } else if (windowsWidth >= 1024) {
         setTheNumberOfMemberInOnePage(2)
+        addMarginNumber.current = 10
       } else {
         setTheNumberOfMemberInOnePage(1)
-        isAddTwenty.current = false
+        addMarginNumber.current = 0
       }
     }, 100);
 

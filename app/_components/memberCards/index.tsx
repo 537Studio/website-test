@@ -19,7 +19,7 @@ export default async function MemberCards() {
 
   return (
     <div className="overflow-hidden h-2/3 sm:h-2/5 w-[calc(100%_-_80px)] shadow-lg drop-shadow-lg bg-white m-10 p-5 mr-10 rounded-lg dark:bg-black">
-      <MemberProvider page={0} theNumberOfMember={showMembers.length}>
+      <MemberProvider page={11} theNumberOfMember={showMembers.length}>
         {showMembers.map((member, index) => {
           return (
             <div
