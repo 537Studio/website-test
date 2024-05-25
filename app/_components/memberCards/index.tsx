@@ -19,12 +19,12 @@ export default async function MemberCards() {
 
   return (
     <div className="overflow-hidden h-2/3 sm:h-2/5 w-[calc(100%_-_80px)] shadow-lg drop-shadow-lg bg-white m-10 p-5 mr-10 rounded-lg dark:bg-black">
-      <MemberProvider>
+      <MemberProvider page={0} theNumberOfMember={showMembers.length}>
         {showMembers.map((member, index) => {
           return (
             <div
               key={member.toString() + index}
-              className="flex snap-start flex-col justify-between p-7"
+              className="flex snap-start flex-col justify-between p-7 w-full lg:w-1/2 xl:w-1/3 h-full flex-shrink-0"
             >
               {/*The avatar of the member*/}
               <div className="flex items-center gap-3">
