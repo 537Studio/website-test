@@ -1,3 +1,4 @@
+import Clock537 from '../app/images/537clock.jpg'
 import Text537 from '../app/images/537text.png'
 import liangmi from '../app/images/members/liangmi.png'
 import pipishan from '../app/images/members/pipishan.png'
@@ -21,7 +22,7 @@ export const showItems: showItemsType = [
   {
     name: '537秒表',
     shortDescription: '少即是多',
-    image: undefined,
+    image: Clock537,
     size: '1.84MB',
     version: 'v1.0',
     platform: ['便捷式'],

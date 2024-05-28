@@ -4,6 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { showMembers } from '@/configs/indexPage'
 import { membersPlatform } from '@/types/indexPage'
 import capitalizeWords from '@/util/capitalizeWords'
+
 import MemberProvider from './MemberProvider'
 
 export default async function MemberCards() {
@@ -23,7 +24,7 @@ export default async function MemberCards() {
         return (
           <div
             key={member.toString() + index}
-            className="flex snap-start flex-col justify-between p-7 w-full lg:w-1/2 xl:w-1/3 h-full flex-shrink-0"
+            className="flex h-full w-full flex-shrink-0 snap-start flex-col justify-between p-7 lg:w-1/2 xl:w-1/3"
           >
             {/*The avatar of the member*/}
             <div className="flex items-center gap-3">
@@ -50,7 +51,7 @@ export default async function MemberCards() {
               ))}
             </div>
             {/*The accounts of the member*/}
-            <div className="flex items-center justify-start gap-5 flex-warp">
+            <div className="flex flex-col items-center justify-start gap-5 sm:flex-row">
               {memberContact[index].map(
                 (contactMethod: string, indexContact) => {
                   let isAddAt
@@ -70,17 +71,24 @@ export default async function MemberCards() {
                         key={contactMethod + index + indexContact}
                       >
                         <div>{capitalizeWords(contactMethod)}</div>
-                        <a href={(showMembers[index][contactMethod] as membersPlatform).href} className='font-medium text-primary underline underline-offset-4'>
-                          {
-                            isAddAt + (
+                        <a
+                          href={
+                            (
                               showMembers[index][
-                              contactMethod
+                                contactMethod
                               ] as membersPlatform
-                            ).name
+                            ).href
                           }
+                          className="font-medium text-primary underline underline-offset-4"
+                        >
+                          {isAddAt +
+                            (
+                              showMembers[index][
+                                contactMethod
+                              ] as membersPlatform
+                            ).name}
                         </a>
                       </div>
-                      {index === 1 ? <br /> : null}
                     </>
                   )
                 },

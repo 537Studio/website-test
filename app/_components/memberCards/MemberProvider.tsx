@@ -1,24 +1,32 @@
 /* MemberProvider.tsx */
 /* To deal with scrolling */
 'use client'
+
 import React, { useEffect, useMemo, useRef, useState } from 'react'
-import { throttle } from 'lodash';
-import { IoIosArrowBack } from "react-icons/io";
-import { IoIosArrowForward } from "react-icons/io";
-import { Button } from '@/components/ui/button';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
+import { throttle } from 'lodash'
+
+import { Button } from '@/components/ui/button'
 
 export interface MemberProviderProps {
   children: React.ReactNode
   theNumberOfMember: number
 }
 
-export default function MemberProvider({ children, theNumberOfMember }: MemberProviderProps) {
+export default function MemberProvider({
+  children,
+  theNumberOfMember,
+}: MemberProviderProps) {
   // needs: the page the user using(page), the number of all page(need calc)
-  const divRef = useRef<HTMLDivElement | null>(null);
-  const [theNumberOfMemberInOnePage, setTheNumberOfMemberInOnePage] = useState(1)
+  const divRef = useRef<HTMLDivElement | null>(null)
+  const [theNumberOfMemberInOnePage, setTheNumberOfMemberInOnePage] =
+    useState(1)
   const [offsetWidth, setOffsetWidth] = useState(0)
   const [page, setPage] = useState(0)
   const addMarginNumber = useRef(0)
+
+  const nextPage = throttle(() => setPage(page + 1), 500)
+  const prevPage = throttle(() => setPage(page - 1), 500)
 
   const theNumberOfPage = useMemo(() => {
     console.log(theNumberOfMember, theNumberOfMemberInOnePage)
@@ -42,7 +50,7 @@ export default function MemberProvider({ children, theNumberOfMember }: MemberPr
     const handleResize = throttle(() => {
       setOffsetWidth((divRef.current as unknown as HTMLDivElement).offsetWidth)
       // set offset width to set marginLeft
-      const windowsWidth = window.innerWidth;
+      const windowsWidth = window.innerWidth
       if (windowsWidth >= 1280) {
         setTheNumberOfMemberInOnePage(3)
         addMarginNumber.current = 20
@@ -53,40 +61,48 @@ export default function MemberProvider({ children, theNumberOfMember }: MemberPr
         setTheNumberOfMemberInOnePage(1)
         addMarginNumber.current = 0
       }
-    }, 100);
+    }, 100)
 
-    handleResize() // init 
+    handleResize() // init
     setPage((theNumberOfPage + 1) * 500)
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize)
     return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+      window.removeEventListener('resize', handleResize)
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [])
 
   return (
-    <div className='h-2/3 sm:h-2/5 relative'>
-      <Button size={"icon"} variant="ghost" onClick={() => { setPage(page - 1) }}
-        className='rounded-full absolute z-10 top-0 bottom-0 left-5 my-auto bg-white dark:bg-gray-950 drop-shadow-lg'>
-        <IoIosArrowBack className='!stroke-black dark:!stroke-white' />
+    <div className="relative h-2/3 sm:h-2/5">
+      <Button
+        size={'icon'}
+        variant="ghost"
+        onClick={prevPage}
+        className="absolute bottom-0 left-5 top-0 z-10 my-auto rounded-full bg-white drop-shadow-lg dark:bg-gray-950"
+      >
+        <IoIosArrowBack className="!stroke-black dark:!stroke-white" />
       </Button>
-      <Button size={"icon"} variant="ghost" onClick={() => { setPage(page + 1) }}
-        className='rounded-full absolute z-10 top-0 bottom-0 right-5 my-auto bg-white dark:bg-gray-950 drop-shadow-lg'>
-        <IoIosArrowForward className='!stroke-black dark:!stroke-white' />
+      <Button
+        size={'icon'}
+        variant="ghost"
+        onClick={nextPage}
+        className="absolute bottom-0 right-5 top-0 z-10 my-auto rounded-full bg-white drop-shadow-lg dark:bg-gray-950"
+      >
+        <IoIosArrowForward className="!stroke-black dark:!stroke-white" />
       </Button>
 
-      <div className="overflow-hidden h-full w-[calc(100%_-_80px)] shadow-lg drop-shadow-lg bg-white m-10 p-5 mr-10 rounded-lg dark:bg-gray-900">
+      <div className="m-10 mr-10 mt-5 h-full w-[calc(100%_-_80px)] overflow-hidden rounded-xl bg-white p-5 shadow-lg drop-shadow-lg dark:bg-gray-900 sm:rounded-lg">
         <div
           // className="h-full overflow-x-auto snap-x snap-mandatory flex flex-row flex-nowrap gap-2"
-          className="h-full overflow-x-visible flex flex-row flex-nowrap gap-2 duration-300"
+          className="flex h-full flex-row flex-nowrap gap-2 overflow-x-visible duration-300"
           ref={divRef}
-          style={{ transform: `translateX(${-marginLeft + "px"})` }}
-        // style {{ transform: "translateX((widht + 20px) * theNumberOfPage)" }}
+          style={{ transform: `translateX(${-marginLeft + 'px'})` }}
+          //  style {{ transform: "translateX((widht + 20px) * theNumberOfPage)" }}
         >
           {children}
         </div>
       </div>
-    </div >
+    </div>
   )
 }
