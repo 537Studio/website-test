@@ -1,4 +1,5 @@
 import MemberCards from './_components/memberCards'
+import JoinUs from './_components/memberCards/JoinUs'
 import { ProductsCards } from './_components/ProductsCards'
 import Title from './_components/Title'
 
@@ -9,7 +10,8 @@ export default function Home() {
     <main className="relative h-full w-full overflow-x-clip">
       <Title></Title>
       <ProductsCards></ProductsCards>
-      <MemberCards></MemberCards>1 1 1
+      <MemberCards></MemberCards>
+      <JoinUs></JoinUs>
     </main>
   )
 }

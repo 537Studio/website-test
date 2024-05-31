@@ -38,6 +38,9 @@
     --gradient-last-top: #0ea5e9;
     --gradient-first-bottom: #b45309;
     --gradient-last-bottom: #0369a1;
+
+    --joinus--text-shadow: 0 5px 9px var(--tw-shadow-color),
+      0 5px 12px var(--tw-shadow-color);
   }
 
   .sb * {
@@ -90,6 +93,8 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+
+    --joinus--text-shadow: none;
   }
 }
 
@@ -116,10 +121,10 @@
     0 0 5px var(--tw-shadow-color);
 }
 
-.text-shadow-2xl {
+text-shadow-2xl {
   text-shadow:
-    0 0 3px var(--tw-shadow-color),
-    0 0 5px var(--tw-shadow-color);
+    0 5px 9px var(--tw-shadow-color),
+    0 5px 12px var(--tw-shadow-color);
 }
 
 .text-shadow-3xl {
@@ -172,4 +177,8 @@
   -webkit-background-clip: text;
   color: transparent;
   display: inline-block;
+}
+
+.gradinet-button {
+  background: linear-gradient(to bottom, #0ea5e9, #0369a1) !important;
 }
