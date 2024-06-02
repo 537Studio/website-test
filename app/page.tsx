@@ -1,3 +1,4 @@
+import Contact from './_components/contact'
 import MemberCards from './_components/memberCards'
 import JoinUs from './_components/memberCards/JoinUs'
 import { ProductsCards } from './_components/ProductsCards'
@@ -12,6 +13,7 @@ export default function Home() {
       <ProductsCards></ProductsCards>
       <MemberCards></MemberCards>
       <JoinUs></JoinUs>
+      <Contact></Contact>
     </main>
   )
 }

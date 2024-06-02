@@ -25,6 +25,15 @@ interface showMember {
   [key: string]: any
 }
 
+type contacts = contact[]
+interface contact {
+  name: string
+  icon: any
+  // icon: React.ReactNode
+  // icon: ReactNode
+  href: string
+}
+
 interface shortDescription {
   name: string
   href?: string
