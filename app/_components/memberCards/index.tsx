@@ -39,7 +39,9 @@ export default async function MemberCards() {
                   {member.name}
                 </div>
                 <div className="text-sm text-slate-800 dark:text-slate-300">
-                  {member.shortDescription.name}
+                  <a href={member.shortDescription.href}>
+                    {member.shortDescription.name}
+                  </a>
                 </div>
               </div>
             </div>
