@@ -1,13 +1,19 @@
 import React from 'react'
+import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { showMembers } from '@/configs/indexPage'
+import { getShowMembers } from '@/configs/indexPage'
 import { membersPlatform } from '@/types/indexPage'
 import capitalizeWords from '@/util/capitalizeWords'
 
 import MemberProvider from './MemberProvider'
 
 export default async function MemberCards() {
+  // const t = useTranslations()
+  const t = await getTranslations()
+  // const t = (string: string) => string
+  const showMembers = getShowMembers(t)
   const memberExcludeKeys = ['name', 'shortDescription', 'description', 'image']
   const memberContact: string[][] = []
   for (let index = 0; index < showMembers.length; index++) {

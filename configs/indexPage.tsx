@@ -25,16 +25,16 @@ export function getShowItems(t: any): showItemsType {
       platform: ['x86', 'x64', t('productPortable')],
     },
     {
-      name: t('537Timer'),
-      shortDescription: t('537TimerShortDescription'),
+      name: t('537Clock'),
+      shortDescription: t('537ClockShortDescription'),
       image: Clock537,
       size: '1.84MB',
       version: 'v1.0',
       platform: [t('productPortable')],
     },
     {
-      name: t('bucketIDCalculation'),
-      shortDescription: t('bucketIDCalculationShortDescription'),
+      name: t('CBMSID'),
+      shortDescription: t('CBMSIDShortDescription'),
       image: undefined,
       size: '1.84MB',
       version: 'v1.3.1',
@@ -42,14 +42,14 @@ export function getShowItems(t: any): showItemsType {
     },
   ]
 }
-export const showMembers: showMembersType = [
+export const getShowMembers = (t: any): showMembersType => [
   {
     name: 'Sean537',
     shortDescription: {
       name: 'Bilibili: @山地奥斯卡537',
       href: 'https://space.bilibili.com/3493272892738031',
     },
-    description: '求知若饥，虚心若愚。\n 537工作室联合创始人之一。',
+    description: t('Sean537Description'),
     gitee: {
       name: 'Sean537',
       href: 'https://gitee.com/sean537',
@@ -65,7 +65,7 @@ export const showMembers: showMembersType = [
     image: sean537,
   },
   {
-    name: '良米',
+    name: t('Liangmi'),
     shortDescription: {
       name: 'Bilibili: @良米良米',
       href: 'https://space.bilibili.com/1964165864',

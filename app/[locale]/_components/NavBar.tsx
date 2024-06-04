@@ -25,10 +25,11 @@ import Logo from '../logo.png'
 const LightHandle = dynamic(() => import('./LightHandle'), { ssr: false })
 
 export default function NavBar() {
+  console.log('success23232323')
   const t = useTranslations()
   const links = getLinks(t)
   return (
-    <div className="fixed top-0 z-50 flex h-12 w-full items-center justify-between border-b-2 border-solid border-slate-100 bg-white px-3 dark:border-slate-900  dark:bg-black">
+    <div className="fixed top-0 z-50 flex h-12 w-full items-center justify-between border-b-2 border-solid border-slate-100 bg-white px-3 dark:border-slate-900 dark:bg-black">
       <div className="flex items-center gap-3">
         <Link href={'/'}>
           <div className="flex items-center gap-2">
@@ -48,7 +49,7 @@ export default function NavBar() {
                 return (
                   <NavigationMenuItem key={'NavBarMenuLinkKeyIndex' + index}>
                     <Link href={item.link} legacyBehavior passHref>
-                      <NavigationMenuLink className="flex items-center gap-1 text-slate-400 dark:text-slate-600 ">
+                      <NavigationMenuLink className="flex items-center gap-1 text-slate-400 dark:text-slate-600">
                         <span className="text-[15px]">{item.name}</span>
                       </NavigationMenuLink>
                     </Link>
@@ -62,7 +63,7 @@ export default function NavBar() {
       <div className="flex items-center">
         <LightHandle />
         <DropdownMenu>
-          <DropdownMenuTrigger className="block sm:hidden " asChild>
+          <DropdownMenuTrigger className="block sm:hidden" asChild>
             <Button
               variant="ghost"
               size="icon"

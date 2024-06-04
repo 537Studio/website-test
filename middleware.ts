@@ -1,17 +1,25 @@
-import { NextRequest, NextResponse } from 'next/server'
-
-/** The header next-intl uses to determine the current locale. */
+/*(import { NextRequest, NextResponse } from 'next/server'
 const nextIntlLocaleHeaderName = 'X-NEXT-INTL-LOCALE'
 
-/**
- * Middleware to handle i18n and configure next-intl locale.
- */
 export function middleware(request: NextRequest) {
-  // Set the locale to the default locale from environment variable
   request.headers.set(nextIntlLocaleHeaderName, process.env.LANGUAGE || 'zh_CN')
-
   return NextResponse.next({ request })
 }
+*/
 
 // Export the middleware
 // export const middleware = middleware
+import createMiddleware from 'next-intl/middleware'
+
+export default createMiddleware({
+  // A list of all locales that are supported
+  locales: ['en_us', 'zh_cn'],
+
+  // Used when no locale matches
+  defaultLocale: 'en_us',
+})
+
+export const config = {
+  // Match only internationalized pathnames
+  matcher: ['/', '/(zh_cn|en_us)/:path*'],
+}

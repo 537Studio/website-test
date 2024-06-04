@@ -1,48 +1,16 @@
-import { NextIntlClientProvider, useMessages } from 'next-intl'
-import type { Metadata } from 'next'
+import { ReactNode } from 'react'
 
-import './globals.css'
+import '@/app/globals.css'
 
-import { getTranslations } from 'next-intl/server'
-
-import { ThemeProvider } from '@/components/theme-provider'
-
-import NavBar from './_components/NavBar'
-
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations()
-  return {
-    title: t('title'),
-    description: t('description'),
-    icons: 'favicon.ico',
-  }
+type Props = {
+  children: ReactNode
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
-  const locale = process.env.LANGUAGE
-  const messages = useMessages()
-
-  return (
-    <html lang="zh" suppressHydrationWarning>
-      <body className="sb h-screen w-full">
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <NavBar />
-            <div className="h-full w-full pt-12 [box-sizing:border-box]">
-              {children}
-            </div>
-          </ThemeProvider>
-        </NextIntlClientProvider>
-      </body>
-    </html>
-  )
+export default function RootLayout({ children }: Props) {
+  // return (
+  //   <html>
+  //     <body>{children}</body>
+  //   </html>
+  // )
+  return children
 }

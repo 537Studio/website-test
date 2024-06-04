@@ -12,10 +12,12 @@
   "productPortable": "便携式",
   "537TextEditor": "537文本编辑器",
   "537TextEditorShortDescription": "非同凡\"想\"",
-  "537Timer": "537秒表",
-  "537TimerShortDescription": "少即是多",
-  "bucketIDCalculation": "计算搬桶学号",
-  "bucketIDCalculationShortDescription": "初出茅庐",
+  "537Clock": "537秒表",
+  "537ClockShortDescription": "少即是多",
+  "CBMSID": "计算搬桶学号",
+  "CBMSIDShortDescription": "初出茅庐",
+  "Sean537Description": "求知若饥，虚心若愚。\n 537工作室联合创始人之一。",
+  "Liangmi": "良米",
   "joinUs": "加入我们",
   "joinUsDescription": "我们追求创新。加入我们，在学习中得出真知，在实践中获得成长。"
 }
