@@ -61,6 +61,8 @@ export default function MemberProvider({
         setTheNumberOfMemberInOnePage(1)
         addMarginNumber.current = 0
       }
+
+      setPage((theNumberOfPage + 1) * 500)
     }, 100)
 
     handleResize() // init

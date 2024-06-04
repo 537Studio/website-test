@@ -4,6 +4,8 @@ import type { Metadata } from 'next'
 
 import { ThemeProvider } from '@/components/theme-provider'
 
+import NavBar from './_components/NavBar'
+
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations()
   return {
@@ -32,7 +34,18 @@ export default async function RootLayout({
     <html lang={locale} suppressHydrationWarning>
       <body className="sb h-screen w-full">
         <NextIntlClientProvider locale={locale} messages={messages}>
-          {children}
+          {/* children */}
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <NavBar />
+            <div className="h-full w-full pt-12 [box-sizing:border-box]">
+              {children}
+            </div>
+          </ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>
