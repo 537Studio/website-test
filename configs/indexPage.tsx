@@ -114,10 +114,9 @@ export const getShowMembers = (t: any): showMembersType => [
       name: 'https://www.pyxia.org',
       href: 'https://www.pyxia.org',
     },
-    description:
-      '537Studio服务提供 \n 一位喜欢玩服务器的资深mjj \n 喜欢玩各种有趣的技术Docker、Node.js等',
+    description: t('XinproDescription'),
     blog: {
-      name: '皮益侠',
+      name: t('XinproBlog'),
       href: 'https://www.pyxia.org/',
     },
     email: {
