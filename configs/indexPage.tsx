@@ -82,18 +82,17 @@ export const getShowMembers = (t: any): showMembersType => [
     image: liangmi,
   },
   {
-    name: '皮皮善哇',
+    name: t('PiPishan'),
     shortDescription: {
       name: 'Bilibili: @皮皮善哇',
       href: 'https://space.bilibili.com/511402656',
     },
-    description:
-      '生活就像海洋，只有意志坚强的人，才能到达彼岸。\n 一名菜鸡编程爱好者。Bilibili为个人日常号, 有事请私信。',
+    description: t('PiPishanDescription'),
     gitee: {
       name: 'Pi',
       href: 'https://gitee.com/pidream',
     },
-    github: {
+    bilibili: {
       name: '皮皮善哇',
       href: 'https://space.bilibili.com/511402656',
     },
