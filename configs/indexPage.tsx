@@ -99,11 +99,11 @@ export const getShowMembers = (t: any): showMembersType => [
     image: pipishan,
   },
   {
-    name: 'Rabbit max',
+    name: 'Rabbit Max',
     shortDescription: { name: "It's not until you fall that you fly." },
-    description: '我是爱Coding的兔呀 \n Rabbit工作室联合创始人 \n 哇呜! ',
+    description: t('RabbitMaxDescription'),
     blog: {
-      name: '个人小站',
+      name: t('RabbitMaxBlog'),
       href: 'https://cncyx.cn',
     },
     image: rabbitMax,
