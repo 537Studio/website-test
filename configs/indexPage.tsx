@@ -1,4 +1,4 @@
-import { MdEmail, MdOutlineEmail } from 'react-icons/md'
+import { MdEmail } from 'react-icons/md'
 import { SiBaidu, SiBilibili, SiGitee, SiGithub } from 'react-icons/si'
 
 import Clock537 from '../app/images/537clock.jpg'
@@ -70,8 +70,7 @@ export const getShowMembers = (t: any): showMembersType => [
       name: 'Bilibili: @良米良米',
       href: 'https://space.bilibili.com/1964165864',
     },
-    description:
-      '一位在科技区和知识区徘徊的up主。\n 学习Rust与Go和各种前端框架的米。\n 废物一个。',
+    description: t('LiangmiDescription'),
     github: {
       name: 'Liangmiqwq',
       href: 'https://github.com/liangmiqwq',
