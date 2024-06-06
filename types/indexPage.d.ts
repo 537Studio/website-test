@@ -42,4 +42,5 @@ interface shortDescription {
 interface membersPlatform {
   name: string
   href: string
+  show?: string
 }

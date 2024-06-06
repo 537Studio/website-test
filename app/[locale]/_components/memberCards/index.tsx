@@ -72,6 +72,9 @@ export default async function MemberCards() {
                   } else {
                     isAddAt = ''
                   }
+                  if (showMembers[index][contactMethod].show === 'none') {
+                    return null
+                  }
                   return (
                     <>
                       <div

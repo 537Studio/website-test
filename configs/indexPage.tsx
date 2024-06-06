@@ -46,8 +46,8 @@ export const getShowMembers = (t: any): showMembersType => [
   {
     name: 'Sean537',
     shortDescription: {
-      name: 'Bilibili: @山地奥斯卡537',
-      href: 'https://space.bilibili.com/3493272892738031',
+      name: t('Sean537ShortDescritionName'),
+      href: t('Sean537ShortDescritionHref'),
     },
     description: t('Sean537Description'),
     gitee: {
@@ -61,6 +61,7 @@ export const getShowMembers = (t: any): showMembersType => [
     bilibili: {
       name: '山地奥斯卡537',
       href: 'https://space.bilibili.com/3493272892738031',
+      show: t('MemberCardBilibiliShow'),
     },
     image: sean537,
   },
@@ -78,6 +79,7 @@ export const getShowMembers = (t: any): showMembersType => [
     bilibili: {
       name: '良米良米',
       href: 'https://space.bilibili.com/1964165864',
+      show: t('MemberCardBilibiliShow'),
     },
     image: liangmi,
   },
@@ -95,6 +97,7 @@ export const getShowMembers = (t: any): showMembersType => [
     bilibili: {
       name: '皮皮善哇',
       href: 'https://space.bilibili.com/511402656',
+      show: t('MemberCardBilibiliShow'),
     },
     image: pipishan,
   },
