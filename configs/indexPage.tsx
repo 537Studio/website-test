@@ -127,7 +127,7 @@ export const getShowMembers = (t: any): showMembersType => [
   },
 ]
 
-export function getContacts(): contactsType {
+export function getContacts(t: any): contactsType {
   return [
     {
       name: 'Gitee',
@@ -140,7 +140,7 @@ export function getContacts(): contactsType {
       icon: <SiGithub />,
     },
     {
-      name: '537软件吧',
+      name: t('537SoftwareBar'),
       href: 'https://tieba.baidu.com/f?kw=537%E8%BD%AF%E4%BB%B6',
       icon: <SiBaidu />,
     },
