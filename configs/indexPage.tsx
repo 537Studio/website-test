@@ -81,13 +81,17 @@ export const getShowMembers = (t: any): showMembersType => [
       href: 'https://space.bilibili.com/1964165864',
       show: t('MemberCardBilibiliShow'),
     },
+    email: {
+      name: 'lm@lmfans.cn',
+      href: 'mailto: lm@lmfans.cn',
+    },
     image: liangmi,
   },
   {
     name: t('PiPishan'),
     shortDescription: {
-      name: 'Bilibili: @皮皮善哇',
-      href: 'https://space.bilibili.com/511402656',
+      name: t('PiPishanShortDescriptionName'),
+      href: t('PiPishanShortDescriptionHref'),
     },
     description: t('PiPishanDescription'),
     gitee: {
@@ -124,7 +128,7 @@ export const getShowMembers = (t: any): showMembersType => [
     },
     email: {
       name: 'chentaiyang163@163.com',
-      href: 'chentaiyang163@163.com',
+      href: 'mailto:chentaiyang163@163.com',
     },
     image: xinpro,
   },
