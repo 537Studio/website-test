@@ -68,7 +68,7 @@ export const getShowMembers = (t: any): showMembersType => [
   {
     name: t('Liangmi'),
     shortDescription: {
-      name: 'Bilibili: @良米良米',
+      name: t('LiangmiShortDescriptionName'),
       href: 'https://space.bilibili.com/1964165864',
     },
     description: t('LiangmiDescription'),
