@@ -9,7 +9,7 @@ export const ProductsCards = () => {
   const t = useTranslations()
   const showItems = getShowItems(t)
   return (
-    <div className="flex h-2/3 items-center justify-between gap-10 p-10  xl:h-3/4">
+    <div className="productsCard flex h-2/3 items-center justify-between gap-10 p-10 sm:!h-2/3 xl:!h-5/6">
       {showItems.map((item, index) => {
         if (index > 2) {
           return null
@@ -19,8 +19,8 @@ export const ProductsCards = () => {
             key={index + item.toString()}
             className={
               'relative h-full flex-1' +
-              (index > 0 && index < 2 ? ' hidden sm:block' : '') +
-              (index > 1 ? ' hidden md:block' : '')
+              (index > 0 && index < 2 ? ' ' + 'hidden sm:block' : '') +
+              (index > 1 ? ' ' + 'hidden md:block' : '')
             }
           >
             {/* The background with some cards */}

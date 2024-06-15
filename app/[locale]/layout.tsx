@@ -23,12 +23,10 @@ export default async function RootLayout({
   children: React.ReactNode
   params: { locale: string }
 }) {
-  console.log('run success1111')
   // const locale = 'zh_cn'
   const locale = params.locale
   // const messages = useMessages()
   const messages = await getMessages()
-  console.log('run success2222', JSON.stringify(messages))
 
   return (
     <html lang={locale} suppressHydrationWarning>

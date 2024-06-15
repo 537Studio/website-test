@@ -25,7 +25,6 @@ import Logo from '../logo.png'
 const LightHandle = dynamic(() => import('./LightHandle'), { ssr: false })
 
 export default function NavBar() {
-  console.log('success23232323')
   const t = useTranslations()
   const links = getLinks(t)
   return (

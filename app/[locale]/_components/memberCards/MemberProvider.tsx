@@ -29,7 +29,6 @@ export default function MemberProvider({
   const prevPage = throttle(() => setPage(page - 1), 500)
 
   const theNumberOfPage = useMemo(() => {
-    console.log(theNumberOfMember, theNumberOfMemberInOnePage)
     return Math.ceil(theNumberOfMember / theNumberOfMemberInOnePage)
   }, [theNumberOfMemberInOnePage, theNumberOfMember])
 

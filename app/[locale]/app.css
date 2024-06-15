@@ -22,3 +22,9 @@
   opacity: 1;
   scale: 1;
 }
+
+@media screen and (min-width: 440px) {
+  .productsCard {
+    height: 90%;
+  }
+}
