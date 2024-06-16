@@ -24,11 +24,11 @@ export const ProductsCards = () => {
             }
           >
             {/* The background with some cards */}
-            <div className="absolute z-0 h-full w-full rounded-xl dark:bg-slate-900"></div>
+            <div className="absolute z-0 h-full w-full rounded-xl shadow-lg shadow-slate-400 dark:bg-slate-900 dark:shadow-none"></div>
             {/* The cards */}
             <div
               className={
-                'cardsAnimation relative z-10 flex h-full w-full flex-col rounded-xl shadow-md dark:bg-slate-900'
+                'cardsAnimation relative z-10 flex h-full w-full flex-col rounded-xl dark:bg-slate-900'
               }
             >
               <Image

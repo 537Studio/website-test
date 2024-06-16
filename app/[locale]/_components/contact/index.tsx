@@ -21,7 +21,7 @@ export default function Contact() {
           return (
             <div
               key={contact.toString() + index}
-              className="flex flex-col items-center justify-center gap-8 rounded-lg p-5 shadow-lg shadow-slate-400 sm:py-10"
+              className="flex flex-col items-center justify-center gap-8 rounded-lg p-5 shadow-lg shadow-slate-400 dark:bg-slate-900 dark:shadow-none sm:py-10"
             >
               {icon}
               <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">

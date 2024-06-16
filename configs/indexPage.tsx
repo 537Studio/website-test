@@ -8,6 +8,7 @@ import pipishan from '../app/images/members/pipishan.png'
 import rabbitMax from '../app/images/members/rabbit-max.png'
 import sean537 from '../app/images/members/sean537.png'
 import xinpro from '../app/images/members/xinpro.png'
+import yz_mm from '../app/images/members/yz_mm.jpg'
 import {
   contacts as contactsType,
   showItems as showItemsType,
@@ -131,6 +132,28 @@ export const getShowMembers = (t: any): showMembersType => [
       href: 'mailto:chentaiyang163@163.com',
     },
     image: xinpro,
+  },
+  {
+    image: yz_mm,
+    name: t('yz_mm'),
+    shortDescription: {
+      name: 'Github: @XiaoMingPinDao',
+      href: 'https://github.com/XiaoMingPinDao',
+    },
+    description: t('yz_mmDescription'),
+    bilibili: {
+      name: '一只铭铭yzmm',
+      href: 'https://space.bilibili.com/1456639471',
+      show: t('MemberCardBilibiliShow'),
+    },
+    email: {
+      name: '3141600296@qq.com',
+      href: 'mailto:3141600296@qq.com',
+    },
+    blog: {
+      name: t('yz_mmBlog'),
+      href: 'https://yz-mm.fun/',
+    },
   },
 ]
 
