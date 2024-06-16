@@ -137,8 +137,8 @@ export const getShowMembers = (t: any): showMembersType => [
     image: yz_mm,
     name: t('yz_mm'),
     shortDescription: {
-      name: 'Github: @XiaoMingPinDao',
-      href: 'https://github.com/XiaoMingPinDao',
+      name: 'http://yz-mm.fun/',
+      href: 'http://yz-mm.fun/',
     },
     description: t('yz_mmDescription'),
     bilibili: {

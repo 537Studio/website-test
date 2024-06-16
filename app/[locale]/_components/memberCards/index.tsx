@@ -45,7 +45,7 @@ export default async function MemberCards() {
                   {member.name}
                 </div>
                 <div className="text-sm text-slate-800 dark:text-slate-300">
-                  <a href={member.shortDescription.href}>
+                  <a href={member.shortDescription.href} target="_blank">
                     {member.shortDescription.name}
                   </a>
                 </div>
@@ -91,6 +91,7 @@ export default async function MemberCards() {
                             ).href
                           }
                           className="font-medium text-primary underline underline-offset-4"
+                          target="_blank"
                         >
                           {isAddAt +
                             (
