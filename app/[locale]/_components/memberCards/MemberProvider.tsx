@@ -61,11 +61,12 @@ export default function MemberProvider({
         addMarginNumber.current = 0
       }
 
-      setPage((theNumberOfPage + 1) * 500)
+      //setPage((theNumberOfPage + 1) * 500)
+      setPage(theNumberOfPage * 500)
     }, 100)
 
     handleResize() // init
-    setPage((theNumberOfPage + 1) * 500)
+    setPage(theNumberOfPage * 500)
 
     window.addEventListener('resize', handleResize)
     return () => {
