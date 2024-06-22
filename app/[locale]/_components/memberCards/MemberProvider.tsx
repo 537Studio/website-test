@@ -5,6 +5,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import { throttle } from 'lodash'
+import { useTranslations } from 'next-intl'
 
 import { Button } from '@/components/ui/button'
 
@@ -24,6 +25,7 @@ export default function MemberProvider({
   const [offsetWidth, setOffsetWidth] = useState(0)
   const [page, setPage] = useState(0)
   const addMarginNumber = useRef(0)
+  const t = useTranslations()
 
   const nextPage = throttle(() => setPage(page + 1), 500)
   const prevPage = throttle(() => setPage(page - 1), 500)
@@ -76,35 +78,40 @@ export default function MemberProvider({
   }, [])
 
   return (
-    <div className="relative h-2/3 sm:h-2/5">
-      <Button
-        size={'icon'}
-        variant="ghost"
-        onClick={prevPage}
-        className="absolute bottom-0 left-5 top-0 z-10 my-auto rounded-full bg-white drop-shadow-lg dark:bg-gray-950"
-      >
-        <IoIosArrowBack className="!stroke-black dark:!stroke-white" />
-      </Button>
-      <Button
-        size={'icon'}
-        variant="ghost"
-        onClick={nextPage}
-        className="absolute bottom-0 right-5 top-0 z-10 my-auto rounded-full bg-white drop-shadow-lg dark:bg-gray-950"
-      >
-        <IoIosArrowForward className="!stroke-black dark:!stroke-white" />
-      </Button>
-
-      <div className="m-10 mr-10 mt-5 h-full w-[calc(100%_-_80px)] overflow-hidden rounded-xl bg-white p-5 shadow-lg drop-shadow-lg dark:bg-gray-900 sm:rounded-lg">
-        <div
-          // className="h-full overflow-x-auto snap-x snap-mandatory flex flex-row flex-nowrap gap-2"
-          className="flex h-full flex-row flex-nowrap gap-2 overflow-x-visible duration-300"
-          ref={divRef}
-          style={{ transform: `translateX(${-marginLeft + 'px'})` }}
-          //  style {{ transform: "translateX((widht + 20px) * theNumberOfPage)" }}
+    <>
+      <h3 className="ml-11 mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
+        {t('MemberCardTitle')}
+      </h3>
+      <div className="relative h-2/3 sm:h-2/5">
+        <Button
+          size={'icon'}
+          variant="ghost"
+          onClick={prevPage}
+          className="absolute bottom-0 left-5 top-0 z-10 my-auto rounded-full bg-white drop-shadow-lg dark:bg-gray-950"
         >
-          {children}
+          <IoIosArrowBack className="!stroke-black dark:!stroke-white" />
+        </Button>
+        <Button
+          size={'icon'}
+          variant="ghost"
+          onClick={nextPage}
+          className="absolute bottom-0 right-5 top-0 z-10 my-auto rounded-full bg-white drop-shadow-lg dark:bg-gray-950"
+        >
+          <IoIosArrowForward className="!stroke-black dark:!stroke-white" />
+        </Button>
+
+        <div className="m-10 mr-10 mt-5 h-full w-[calc(100%_-_80px)] overflow-hidden rounded-xl bg-white p-5 shadow-lg drop-shadow-lg dark:bg-gray-900 sm:rounded-lg">
+          <div
+            // className="h-full overflow-x-auto snap-x snap-mandatory flex flex-row flex-nowrap gap-2"
+            className="flex h-full flex-row flex-nowrap gap-2 overflow-x-visible duration-300"
+            ref={divRef}
+            style={{ transform: `translateX(${-marginLeft + 'px'})` }}
+            //  style {{ transform: "translateX((widht + 20px) * theNumberOfPage)" }}
+          >
+            {children}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }

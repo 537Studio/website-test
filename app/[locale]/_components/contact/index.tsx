@@ -11,7 +11,7 @@ export default function Contact() {
 
   return (
     <div className="relative m-10">
-      <h3 className="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
+      <h3 className="ml-1 mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
         {t('FindUs')}
       </h3>
       {/*

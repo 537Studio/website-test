@@ -1,6 +1,6 @@
 import Contact from './_components/contact'
 import MemberCards from './_components/memberCards'
-import JoinUs from './_components/memberCards/JoinUs'
+// import JoinUs from './_components/memberCards/JoinUs'
 import { ProductsCards } from './_components/ProductsCards'
 import Title from './_components/Title'
 
@@ -12,7 +12,7 @@ export default function Home() {
       <Title></Title>
       <ProductsCards></ProductsCards>
       <MemberCards></MemberCards>
-      <JoinUs></JoinUs>
+      {/* <JoinUs></JoinUs> */}
       <Contact></Contact>
     </main>
   )
