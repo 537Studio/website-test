@@ -45,7 +45,7 @@ export function getShowItems(t: any): showItemsType {
 }
 export const getShowMembers = (t: any): showMembersType => [
   {
-    name: 'Sean537',
+    name: 'sean537',
     shortDescription: {
       name: t('Sean537ShortDescritionName'),
       href: t('Sean537ShortDescritionHref'),

@@ -1,4 +1,5 @@
 import Contact from './_components/Contact'
+import Footer from './_components/Footer'
 import MemberCards from './_components/memberCards'
 // import JoinUs from './_components/memberCards/JoinUs'
 import { ProductsCards } from './_components/ProductsCards'
@@ -14,6 +15,7 @@ export default function Home() {
       <MemberCards></MemberCards>
       {/* <JoinUs></JoinUs> */}
       <Contact></Contact>
+      <Footer></Footer>
     </main>
   )
 }

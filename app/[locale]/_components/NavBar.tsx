@@ -18,7 +18,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from '@/components/ui/navigation-menu'
-import { getLinks } from '@/configs/navBar'
+import { getLinks } from '@/configs/nav'
 
 import Logo from '../logo.png'
 
