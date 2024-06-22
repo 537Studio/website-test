@@ -1,5 +1,4 @@
 import React from 'react'
-import { useTranslations } from 'next-intl'
 import { getTranslations } from 'next-intl/server'
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'

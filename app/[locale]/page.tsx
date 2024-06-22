@@ -1,4 +1,4 @@
-import Contact from './_components/contact'
+import Contact from './_components/Contact'
 import MemberCards from './_components/memberCards'
 // import JoinUs from './_components/memberCards/JoinUs'
 import { ProductsCards } from './_components/ProductsCards'
