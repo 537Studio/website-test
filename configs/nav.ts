@@ -22,3 +22,23 @@ export const getMembersSecond = (t: any) => {
     { link: 'https://yz-mm.fun/', name: t('yz_mm') },
   ]
 }
+
+interface languagesInterface {
+  [key: string]: any
+}
+
+export const languages: languagesInterface = {
+  zh_cn: {
+    icon: '\uD83C\uDDE8\uD83C\uDDF3',
+    name: '简体中文',
+  },
+  en_us: {
+    icon: '\uD83C\uDDFA\uD83C\uDDF8',
+    name: 'English',
+  },
+
+  zh_hk: {
+    icon: '\uD83C\uDDED\uD83C\uDDF0',
+    name: '繁体中文',
+  },
+}

@@ -28,13 +28,14 @@ export const ProductsCards = () => {
             {/* The cards */}
             <div
               className={
-                'cardsAnimation relative z-10 flex h-full w-full flex-col rounded-xl dark:bg-slate-900'
+                'cardsAnimation rlative z-10 flex h-full w-full flex-col rounded-xl dark:bg-slate-900'
               }
             >
               <Image
                 src={item.image as StaticImport}
                 alt={t('title')}
                 className="rounded-t-xl"
+                priority={false}
               ></Image>
               <div className="flex flex-1 flex-col justify-between p-4">
                 <div>

@@ -36,7 +36,7 @@ export function getShowItems(t: any): showItemsType {
     {
       name: t('CBMSID'),
       shortDescription: t('CBMSIDShortDescription'),
-      image: undefined,
+      image: Clock537,
       size: '1.84MB',
       version: 'v1.3.1',
       platform: ['x64'],
@@ -45,7 +45,7 @@ export function getShowItems(t: any): showItemsType {
 }
 export const getShowMembers = (t: any): showMembersType => [
   {
-    name: 'sean537',
+    name: 'Sean537',
     shortDescription: {
       name: t('Sean537ShortDescritionName'),
       href: t('Sean537ShortDescritionHref'),
