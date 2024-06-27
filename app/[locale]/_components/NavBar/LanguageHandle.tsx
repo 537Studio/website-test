@@ -1,12 +1,10 @@
 import React from 'react'
 import { IoLanguage } from 'react-icons/io5'
-import Link from 'next/link'
 
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { languages } from '@/configs/nav'

@@ -10,6 +10,7 @@ interface LanguageNavHandleProps {
   name: string
   href: string
 }
+
 export default function LanguageNavHandle({
   icon,
   name,
