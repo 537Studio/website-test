@@ -2,8 +2,8 @@ import React from 'react'
 import { useTranslations } from 'next-intl'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
-import Link from 'next/link'
 
+import Link from '@/app/[locale]/_components/Link'
 import Logo from '@/app/logo.png'
 import {
   NavigationMenu,
