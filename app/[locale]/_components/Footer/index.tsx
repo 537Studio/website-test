@@ -1,7 +1,10 @@
 import React from 'react'
 import { useTranslations } from 'next-intl'
+import dynamic from 'next/dynamic'
+import Image from 'next/image'
 import Link from 'next/link'
 
+import Logo from '@/app/logo.png'
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -9,6 +12,12 @@ import {
   NavigationMenuList,
 } from '@/components/ui/navigation-menu'
 import { getLinks, getMembersFirst, getMembersSecond } from '@/configs/nav'
+
+import LanguageHandle from '../NavBar/LanguageHandle'
+
+const LightHandle = dynamic(() => import('../NavBar/LightHandle'), {
+  ssr: false,
+})
 
 interface footerProps {
   marginTop?: number
@@ -28,7 +37,7 @@ function Footer({ marginTop }: footerProps) {
     <div
       className={
         classNameDiv +
-        'flex h-1/2 w-full flex-col p-14 shadow-2xl shadow-slate-500'
+        'flex h-[400px] w-full flex-col p-14 shadow-2xl shadow-slate-500'
       }
     >
       {/* Title */}
@@ -42,61 +51,76 @@ function Footer({ marginTop }: footerProps) {
       </div>
 
       {/* Main */}
-      <div className="flex flex-1 items-center gap-10">
-        <NavigationMenu>
-          <NavigationMenuList className="flex flex-col !items-start gap-3">
-            {links.map((item, index) => {
-              return (
-                <NavigationMenuItem
-                  key={'NavBarMenuLinkKeyIndex' + index}
-                  className="!ml-0 cursor-pointer"
-                >
-                  <Link href={item.link} legacyBehavior passHref>
-                    <NavigationMenuLink className="flex text-slate-500">
-                      <span className="text-[15px]">{item.name}</span>
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-              )
-            })}
-          </NavigationMenuList>
-        </NavigationMenu>
-        <NavigationMenu>
-          <NavigationMenuList className="flex flex-col !items-start gap-3">
-            {membersFirst.map((item, index) => {
-              return (
-                <NavigationMenuItem
-                  key={'NavBarMenuLinkKeyIndex' + index}
-                  className="!ml-0 cursor-pointer"
-                >
-                  <Link href={item.link} legacyBehavior passHref>
-                    <NavigationMenuLink className="flex text-slate-500">
-                      <span className="text-[15px]">{item.name}</span>
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-              )
-            })}
-          </NavigationMenuList>
-        </NavigationMenu>
-        <NavigationMenu>
-          <NavigationMenuList className="flex flex-col !items-start gap-3">
-            {membersSecond.map((item, index) => {
-              return (
-                <NavigationMenuItem
-                  key={'NavBarMenuLinkKeyIndex' + index}
-                  className="!ml-0 cursor-pointer"
-                >
-                  <Link href={item.link} legacyBehavior passHref>
-                    <NavigationMenuLink className="flex text-slate-500">
-                      <span className="text-[15px]">{item.name}</span>
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-              )
-            })}
-          </NavigationMenuList>
-        </NavigationMenu>
+      <div className="flex w-full flex-1">
+        <div className="flex flex-1 items-center gap-10">
+          <NavigationMenu>
+            <NavigationMenuList className="flex flex-col !items-start gap-3">
+              {links.map((item, index) => {
+                return (
+                  <NavigationMenuItem
+                    key={'NavBarMenuLinkKeyIndex' + index}
+                    className="!ml-0 cursor-pointer"
+                  >
+                    <Link href={item.link} legacyBehavior passHref>
+                      <NavigationMenuLink className="flex text-slate-500">
+                        <span className="text-[15px]">{item.name}</span>
+                      </NavigationMenuLink>
+                    </Link>
+                  </NavigationMenuItem>
+                )
+              })}
+            </NavigationMenuList>
+          </NavigationMenu>
+          <NavigationMenu>
+            <NavigationMenuList className="flex flex-col !items-start gap-3">
+              {membersFirst.map((item, index) => {
+                return (
+                  <NavigationMenuItem
+                    key={'NavBarMenuLinkKeyIndex' + index}
+                    className="!ml-0 cursor-pointer"
+                  >
+                    <Link href={item.link} legacyBehavior passHref>
+                      <NavigationMenuLink className="flex text-slate-500">
+                        <span className="text-[15px]">{item.name}</span>
+                      </NavigationMenuLink>
+                    </Link>
+                  </NavigationMenuItem>
+                )
+              })}
+            </NavigationMenuList>
+          </NavigationMenu>
+          <NavigationMenu>
+            <NavigationMenuList className="flex flex-col !items-start gap-3">
+              {membersSecond.map((item, index) => {
+                return (
+                  <NavigationMenuItem
+                    key={'NavBarMenuLinkKeyIndex' + index}
+                    className="!ml-0 cursor-pointer"
+                  >
+                    <Link href={item.link} legacyBehavior passHref>
+                      <NavigationMenuLink className="flex text-slate-500">
+                        <span className="text-[15px]">{item.name}</span>
+                      </NavigationMenuLink>
+                    </Link>
+                  </NavigationMenuItem>
+                )
+              })}
+            </NavigationMenuList>
+          </NavigationMenu>
+        </div>
+        {/* Logo */}
+        <div className="hidden items-center sm:flex">
+          <Image
+            src={Logo}
+            alt={t('title')}
+            className="h-40 w-40 lg:h-48 lg:w-48"
+          />
+        </div>
+      </div>
+      {/* Controls */}
+      <div>
+        <LanguageHandle />
+        <LightHandle />
       </div>
     </div>
   )
