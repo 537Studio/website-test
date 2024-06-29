@@ -1,4 +1,6 @@
-# 537 工作室官网
+# 537 工作室官网 [![License](https://img.shields.io/badge/License-View--Only%20License-blue)](https://github.com/537Studio/website-test/blob/537main/LICENSE)
+
+[English](https://github.com/537Studio/website-test/blob/537main/README.en_us.md) | Chinese
 
 正在开发的 537 工作室官网和开发样本。
 开发完毕后会进行发布
@@ -17,3 +19,7 @@
 - Zustand
 - Framer motion
 - Tailwind CSS
+
+### 许可证
+
+本项目的源代码可以根据“浏览源代码许可证”进行浏览。有关详细信息，请参阅根目录中的LICENSE文件。
