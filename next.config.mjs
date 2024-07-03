@@ -8,7 +8,7 @@ const nextConfig = {
   experimental: {
     webpackBuildWorker: true,
   },
-  output: 'standalone',
+  // output: 'standalone',
 }
 
 export default withNextIntl(nextConfig)
