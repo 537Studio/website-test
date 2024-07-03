@@ -3,6 +3,7 @@ import { SiBaidu, SiBilibili, SiGitee, SiGithub } from 'react-icons/si'
 
 import Clock537 from '../app/images/537clock.jpg'
 import Text537 from '../app/images/537text.png'
+import clash from '../app/images/members/clash.jpg'
 import liangmi from '../app/images/members/liangmi.png'
 import pipishan from '../app/images/members/pipishan.png'
 import rabbitMax from '../app/images/members/rabbit-max.png'
@@ -30,7 +31,7 @@ export function getShowItems(t: any): showItemsType {
       shortDescription: t('537ClockShortDescription'),
       image: Clock537,
       size: '1.84MB',
-      version: 'v1.0',
+      version: 'v1.1',
       platform: [t('productPortable')],
     },
     {
@@ -154,6 +155,15 @@ export const getShowMembers = (t: any): showMembersType => [
       name: t('yz_mmBlog'),
       href: 'https://yz-mm.fun/',
     },
+  },
+  {
+    name: 'Clash',
+    image: clash,
+    shortDescription: {
+      name: 'http://dogemandogeman.top/',
+      href: 'http://dogemandogeman.top/',
+    },
+    description: '原来你也网上冲浪！',
   },
 ]
 
