@@ -163,7 +163,11 @@ export const getShowMembers = (t: any): showMembersType => [
       name: 'http://dogemandogeman.top/',
       href: 'http://dogemandogeman.top/',
     },
-    description: '原来你也网上冲浪！',
+    description: t('ClashDescription'),
+    blog: {
+      name: t('ClashBlog'),
+      href: 'http://dogemandogeman.top/',
+    },
   },
 ]
 

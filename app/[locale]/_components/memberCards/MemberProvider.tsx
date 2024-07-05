@@ -6,6 +6,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import { throttle } from 'lodash'
 import { useTranslations } from 'next-intl'
+import { Postpone } from 'next/dist/server/app-render/dynamic-rendering'
 
 import { Button } from '@/components/ui/button'
 
@@ -26,6 +27,7 @@ export default function MemberProvider({
   const [page, setPage] = useState(0)
   const addMarginNumber = useRef(0)
   const t = useTranslations()
+  const count = useRef(0)
 
   const nextPage = throttle(() => setPage(page + 1), 500)
   const prevPage = throttle(() => setPage(page - 1), 500)
@@ -54,6 +56,9 @@ export default function MemberProvider({
       const windowsWidth = window.innerWidth
       if (windowsWidth >= 1280) {
         setTheNumberOfMemberInOnePage(3)
+        setTimeout(() => {
+          console.log(theNumberOfMemberInOnePage)
+        }, 100)
         addMarginNumber.current = 20
       } else if (windowsWidth >= 1024) {
         setTheNumberOfMemberInOnePage(2)
@@ -64,10 +69,23 @@ export default function MemberProvider({
       }
 
       //setPage((theNumberOfPage + 1) * 500)
+      setTimeout(() => {
+        console.log(
+          theNumberOfPage,
+          page,
+          theNumberOfMemberInOnePage,
+          theNumberOfMember,
+          windowsWidth,
+        )
+      }, 100)
       setPage(theNumberOfPage * 500)
     }, 100)
 
-    handleResize() // init
+    if (count.current < 1) {
+      handleResize()
+    }
+    count.current++
+
     setPage(theNumberOfPage * 500)
 
     window.addEventListener('resize', handleResize)
@@ -75,7 +93,8 @@ export default function MemberProvider({
       window.removeEventListener('resize', handleResize)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [theNumberOfPage, theNumberOfMember, theNumberOfMemberInOnePage]) // Include all dependencies here
+  //}, [])
 
   return (
     <>
