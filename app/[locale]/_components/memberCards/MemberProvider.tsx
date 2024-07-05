@@ -6,7 +6,6 @@ import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import { throttle } from 'lodash'
 import { useTranslations } from 'next-intl'
-import { Postpone } from 'next/dist/server/app-render/dynamic-rendering'
 
 import { Button } from '@/components/ui/button'
 

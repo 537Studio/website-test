@@ -120,13 +120,13 @@ export const getShowMembers = (t: any): showMembersType => [
   {
     name: 'Xinpro',
     shortDescription: {
-      name: 'https://www.pyxia.org',
-      href: 'https://www.pyxia.org',
+      name: 'https://www.nxtf.net',
+      href: 'https://www.nxtf.net',
     },
     description: t('XinproDescription'),
     blog: {
       name: t('XinproBlog'),
-      href: 'https://www.pyxia.org/',
+      href: 'https://www.nxtf.net',
     },
     email: {
       name: 'chentaiyang163@163.com',
