@@ -8,7 +8,7 @@ export default function JoinUs() {
   const t = useTranslations()
 
   return (
-    <div className="m-10 mt-5 flex items-center justify-between ">
+    <div className="m-10 mt-5 flex items-center justify-between">
       <p className="text-shadow-3xl text-black shadow-yellow-600 dark:hidden">
         {t('joinUsDescription')}
       </p>

@@ -9,7 +9,7 @@ import './app.css'
 
 export default function Home() {
   return (
-    <main className="relative h-full w-full overflow-x-clip">
+    <main className="sb relative h-full w-full overflow-x-clip">
       <Title></Title>
       <ProductsCards></ProductsCards>
       <MemberCards></MemberCards>
