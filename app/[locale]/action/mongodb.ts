@@ -5,26 +5,7 @@ import { Db, MongoClient } from 'mongodb'
 const db_uri = process.env.DB_URI
 
 declare global {
-  var _mongoClientPromise: Promise<MongoClient> | undefined
-}
-
-let client
-let clientPromise: Promise<MongoClient> | undefined
-let error: string | undefined = undefined
-if (process.env.NODE_ENV !== 'development') {
-  if (!global._mongoClientPromise) {
-    if (db_uri != undefined) {
-      try {
-        client = new MongoClient(db_uri)
-        global._mongoClientPromise = client.connect()
-      } catch {
-        error = 'Cannot connect to MongoDB'
-      }
-    } else {
-      error = 'DB_URI is undefined in .env'
-    }
-  }
-  clientPromise = global._mongoClientPromise
+  var _mongoClient: MongoClient | undefined
 }
 
 export async function useMongoDB(action: (db?: Db) => {}) {
@@ -45,9 +26,31 @@ export async function useMongoDB(action: (db?: Db) => {}) {
         return 'DB_URI is undefined in .env'
       }
     } else {
-      if (error === undefined) {
-        mongoClient = await (clientPromise as Promise<MongoClient>)
-        db = mongoClient.db()
+      const connectToMongoDB = async () => {
+        // release env
+        // use the same connect till something error
+        if (db_uri != undefined) {
+          try {
+            mongoClient = new MongoClient(db_uri)
+            global._mongoClient = await mongoClient.connect()
+            db = mongoClient.db()
+          } catch {
+            return 'Cannot connect to MongoDB'
+          }
+        } else {
+          return 'DB_URI is undefined in .env'
+        }
+      }
+      if (global._mongoClient === undefined) {
+        // mongoClient undefined
+        await connectToMongoDB()
+      } else {
+        mongoClient = global._mongoClient
+        try {
+          await mongoClient.db().command({ ping: 1 })
+        } catch {
+          await connectToMongoDB()
+        }
       }
     }
 
