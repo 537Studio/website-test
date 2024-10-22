@@ -7,10 +7,10 @@ import { getProducts } from '../action/mongodb'
 export const ProductsCards = async () => {
   const t = await getTranslations()
   const showItems = await getProducts(t)
-  return (
-    <div className="productsCard flex h-2/3 items-center justify-between gap-10 p-10 sm:!h-2/3 xl:!h-5/6">
-      {showItems[1] === undefined && // successful
-        showItems[0].map((item, index) => {
+  if (showItems[1] === undefined) {
+    return (
+      <div className="productsCard flex h-2/3 items-center justify-between gap-10 p-10 sm:!h-2/3 xl:!h-5/6">
+        {showItems[0].map((item, index) => {
           return (
             <div
               key={index + item.toString()}
@@ -68,7 +68,13 @@ export const ProductsCards = async () => {
             </div>
           )
         })}
-      {showItems[1] !== undefined && <div>{t(showItems[1])}</div>}
-    </div>
-  )
+      </div>
+    )
+  } else {
+    return (
+      <div className="flex h-1/6 items-center justify-center gap-2 p-10">
+        {showItems[1] !== undefined && <div>{t(showItems[1])}</div>}
+      </div>
+    )
+  }
 }
