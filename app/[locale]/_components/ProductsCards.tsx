@@ -1,12 +1,12 @@
 import React from 'react'
-import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import { StaticImport } from 'next/dist/shared/lib/get-img-props'
 import Image from 'next/image'
 
 import { getShowItems } from '@/configs/indexPage'
 
-export const ProductsCards = () => {
-  const t = useTranslations()
+export const ProductsCards = async () => {
+  const t = await getTranslations()
   const showItems = getShowItems(t)
   return (
     <div className="productsCard flex h-2/3 items-center justify-between gap-10 p-10 sm:!h-2/3 xl:!h-5/6">
