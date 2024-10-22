@@ -1,6 +1,6 @@
 'use server'
 
-import { Db, MongoClient, WithId } from 'mongodb'
+import { Db, MongoClient, MongoClientOptions, WithId } from 'mongodb'
 
 import { showItems } from '@/types/indexPage'
 
@@ -16,13 +16,17 @@ export async function getProducts(
   let dbProducts: WithId<showItemDB>[] | undefined
   try {
     dbProducts = await await mongoDB(async (db) => {
-      const productsCollection = db?.collection('products')
-      const products = await productsCollection
-        ?.find()
-        .sort({ time: -1 })
-        .limit(3)
-        .toArray()
-      return products
+      try {
+        const productsCollection = db?.collection('products')
+        const products = await productsCollection
+          ?.find()
+          .sort({ time: -1 })
+          .limit(3)
+          .toArray()
+        return products
+      } catch {
+        throw new Error('errCannotConnect')
+      }
     })
   } catch (e) {
     if (e instanceof Error) {
@@ -49,12 +53,18 @@ export async function getProducts(
 export async function mongoDB(action: (db?: Db) => any) {
   let db: Db | undefined
   let mongoClient: MongoClient | undefined
+  const dbConfig: MongoClientOptions = {
+    connectTimeoutMS: 1000,
+    serverSelectionTimeoutMS: 1000,
+    socketTimeoutMS: 5000,
+    retryWrites: true,
+  }
   if (process.env.NODE_ENV === 'development') {
     // development env
     // re-create a connect after used
     if (db_uri != undefined) {
       try {
-        mongoClient = new MongoClient(db_uri)
+        mongoClient = new MongoClient(db_uri, dbConfig)
         db = mongoClient.db()
       } catch {
         throw new Error('errCannotConnect')
@@ -68,7 +78,7 @@ export async function mongoDB(action: (db?: Db) => any) {
       // use the same connect till something error
       if (db_uri != undefined) {
         try {
-          mongoClient = new MongoClient(db_uri)
+          mongoClient = new MongoClient(db_uri, dbConfig)
           global._mongoClient = await mongoClient.connect()
           db = mongoClient.db()
         } catch {
@@ -91,7 +101,12 @@ export async function mongoDB(action: (db?: Db) => any) {
     }
   }
 
-  const returnValue = action(db)
+  let returnValue
+  try {
+    returnValue = action(db)
+  } catch (e) {
+    throw e
+  }
 
   // now we have db
   if (process.env.NODE_ENV === 'development' && mongoClient !== undefined) {
