@@ -5,7 +5,7 @@ type showItems = showItem[]
 interface showItem {
   name: string
   shortDescription: string
-  image: StaticImageData | undefined
+  image: StaticImageData | string
   size: string
   version: string
   platform: string[]
