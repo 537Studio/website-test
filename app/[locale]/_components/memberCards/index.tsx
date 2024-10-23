@@ -28,7 +28,7 @@ export default async function MemberCards() {
       {showMembers.map((member, index) => {
         return (
           <div
-            key={member.toString() + index}
+            key={member.toString() + index + member.name}
             className="flex h-full w-full flex-shrink-0 snap-start flex-col justify-between p-7 lg:w-1/2 xl:w-1/3"
           >
             {/*The avatar of the member*/}
@@ -75,32 +75,24 @@ export default async function MemberCards() {
                     return null
                   }
                   return (
-                    <>
-                      <div
-                        className="flex flex-col items-center"
-                        key={contactMethod + index + indexContact}
+                    <div
+                      className="flex flex-col items-center"
+                      key={contactMethod + index + indexContact}
+                    >
+                      <div>{capitalizeWords(contactMethod)}</div>
+                      <a
+                        href={
+                          (showMembers[index][contactMethod] as membersPlatform)
+                            .href
+                        }
+                        className="font-medium text-primary underline underline-offset-4"
+                        target="_blank"
                       >
-                        <div>{capitalizeWords(contactMethod)}</div>
-                        <a
-                          href={
-                            (
-                              showMembers[index][
-                                contactMethod
-                              ] as membersPlatform
-                            ).href
-                          }
-                          className="font-medium text-primary underline underline-offset-4"
-                          target="_blank"
-                        >
-                          {isAddAt +
-                            (
-                              showMembers[index][
-                                contactMethod
-                              ] as membersPlatform
-                            ).name}
-                        </a>
-                      </div>
-                    </>
+                        {isAddAt +
+                          (showMembers[index][contactMethod] as membersPlatform)
+                            .name}
+                      </a>
+                    </div>
                   )
                 },
               )}

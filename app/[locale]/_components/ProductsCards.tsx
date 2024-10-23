@@ -73,7 +73,7 @@ export const ProductsCards = async () => {
   } else {
     return (
       <div className="flex h-1/6 items-center justify-center gap-2 p-10">
-        {showItems[1] !== undefined && <div>{t(showItems[1])}</div>}
+        <div>{t(showItems[1])}</div>
       </div>
     )
   }
