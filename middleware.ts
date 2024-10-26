@@ -1,3 +1,8 @@
+import createMiddleware from 'next-intl/middleware'
+import { NextRequest, NextResponse } from 'next/server'
+
+import NotFound from './app/not-found'
+
 /*(import { NextRequest, NextResponse } from 'next/server'
 const nextIntlLocaleHeaderName = 'X-NEXT-INTL-LOCALE'
 
@@ -9,9 +14,26 @@ export function middleware(request: NextRequest) {
 
 // Export the middleware
 // export const middleware = middleware
-import createMiddleware from 'next-intl/middleware'
 
-export default createMiddleware({
+const backstagePath = process.env.BACKSTAGE_PATH || '/backstage537'
+export default function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl
+
+  if (pathname.startsWith('/' + backstagePath)) {
+    const newURL = request.nextUrl.clone()
+    newURL.pathname.replace(backstagePath, '/backstage')
+    return NextResponse.rewrite(newURL)
+  } else if (pathname.startsWith('/backstage')) {
+    // using the `else if` to exclude BACKSTAGE_PATH === "/backstage"
+    NotFound()
+    return NextResponse.next()
+  }
+  console.log('nothing much')
+
+  return i18nMiddleware(request)
+}
+
+const i18nMiddleware = createMiddleware({
   // A list of all locales that are supported
   locales: ['en_us', 'zh_cn', 'zh_hk'],
 
@@ -21,5 +43,12 @@ export default createMiddleware({
 
 export const config = {
   // Match only internationalized pathnames
-  matcher: ['/', '/(zh_cn|en_us|zh_hk)/:path*'],
+  // Also match the backstage path
+  matcher: [
+    '/',
+    '/(zh_cn|en_us|zh_hk)/:path*',
+    `/${backstagePath}/:path*`, // script:needToReplace
+    '/backstage/:path*',
+  ],
+  // .map((item) => item.),
 }
