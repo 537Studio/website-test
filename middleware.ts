@@ -1,4 +1,5 @@
 import createMiddleware from 'next-intl/middleware'
+import { notFound } from 'next/navigation'
 import { NextRequest, NextResponse } from 'next/server'
 
 import NotFound from './app/not-found'
@@ -15,21 +16,23 @@ export function middleware(request: NextRequest) {
 // Export the middleware
 // export const middleware = middleware
 
-const backstagePath = process.env.BACKSTAGE_PATH || '/backstage537'
+const backstagePath = process.env.BACKSTAGE_PATH || 'backstage537'
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   if (pathname.startsWith('/' + backstagePath)) {
-    const newURL = request.nextUrl.clone()
-    newURL.pathname.replace(backstagePath, '/backstage')
-    return NextResponse.rewrite(newURL)
+    console.log('really good ', pathname.replace(backstagePath, '/backstage'))
+    return NextResponse.rewrite(
+      new URL(pathname.replace(backstagePath, 'backstage'), request.url),
+    )
   } else if (pathname.startsWith('/backstage')) {
+    console.log('fuck!')
     // using the `else if` to exclude BACKSTAGE_PATH === "/backstage"
-    NotFound()
-    return NextResponse.next()
+    // notFound()
+    return NextResponse.rewrite(new URL('/not-found', request.url))
   }
-  console.log('nothing much')
 
+  console.log('tmd')
   return i18nMiddleware(request)
 }
 
@@ -47,7 +50,7 @@ export const config = {
   matcher: [
     '/',
     '/(zh_cn|en_us|zh_hk)/:path*',
-    `/${backstagePath}/:path*`, // script:needToReplace
+    `/admin537/:path*`, // script:needToReplace
     '/backstage/:path*',
   ],
   // .map((item) => item.),
