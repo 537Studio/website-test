@@ -30,7 +30,6 @@ export default function middleware(request: NextRequest) {
     return NextResponse.rewrite(new URL('/not-found', request.url))
   }
 
-  console.log('tmd')
   return i18nMiddleware(request)
 }
 
@@ -48,7 +47,7 @@ export const config = {
   matcher: [
     '/',
     '/(zh_cn|en_us|zh_hk)/:path*',
-    `/${backstagePath}/:path*`, // script:needToReplace
+    `/admin537/:path*`, // script:needToReplace
     '/backstage/:path*',
   ],
   // .map((item) => item.),

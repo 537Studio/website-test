@@ -22,7 +22,6 @@ export default getRequestConfig(async ({ locale }) => {
     (locale as any) !== process.env.BACKSTAGE_PATH &&
     (locale as any) !== '/backstage'
   ) {
-    console.log('what the hell')
     if (!locales.includes(locale as any)) notFound()
     const file = (await import(`./${locale}.json`)).default
     // console.log(JSON.stringify(file))
