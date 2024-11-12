@@ -21,12 +21,10 @@ export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   if (pathname.startsWith('/' + backstagePath)) {
-    console.log('really good ', pathname.replace(backstagePath, '/backstage'))
     return NextResponse.rewrite(
       new URL(pathname.replace(backstagePath, 'backstage'), request.url),
     )
   } else if (pathname.startsWith('/backstage')) {
-    console.log('fuck!')
     // using the `else if` to exclude BACKSTAGE_PATH === "/backstage"
     // notFound()
     return NextResponse.rewrite(new URL('/not-found', request.url))
@@ -50,7 +48,7 @@ export const config = {
   matcher: [
     '/',
     '/(zh_cn|en_us|zh_hk)/:path*',
-    `/admin537/:path*`, // script:needToReplace
+    `/${backstagePath}/:path*`, // script:needToReplace
     '/backstage/:path*',
   ],
   // .map((item) => item.),
