@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "node ./script/startBuild.mjs && next dev && node ./script/endBuild.mjs",
-    "build": "next build",
+    "build": "node ./script/startBuild.mjs && next build && node ./script/endBuild.mjs",
     "start": "next start",
     "lint": "next lint",
     "prettier": "prettier --write --config .prettierrc.mjs ./*"
