@@ -2,7 +2,7 @@ import React from 'react'
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 
-import { getProducts } from '../action/mongodb'
+import { getProducts } from '../action/products'
 
 export const ProductsCards = async () => {
   const t = await getTranslations()
