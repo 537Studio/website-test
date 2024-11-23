@@ -9,7 +9,7 @@ export async function getProducts(
 ): Promise<[showItems, string | undefined]> {
   let dbProducts: WithId<showItemDB>[] | undefined
   try {
-    dbProducts = await await mongoDB(async (db) => {
+    dbProducts = await mongoDB(async (db) => {
       try {
         const productsCollection = db?.collection('products')
         const products = await productsCollection

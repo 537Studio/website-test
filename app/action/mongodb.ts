@@ -8,7 +8,7 @@ declare global {
   var _mongoClient: MongoClient | undefined
 }
 
-export async function mongoDB(action: (db?: Db) => any) {
+export async function mongoDB(action: (db?: Db) => Promise<any>) {
   let db: Db | undefined
   let mongoClient: MongoClient | undefined
   const dbConfig: MongoClientOptions = {
@@ -61,7 +61,7 @@ export async function mongoDB(action: (db?: Db) => any) {
 
   let returnValue
   try {
-    returnValue = action(db)
+    returnValue = await action(db)
   } catch (e) {
     throw e
   }
