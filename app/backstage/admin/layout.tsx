@@ -24,17 +24,18 @@ export default async function layout({
   }
 
   return (
-    <SidebarProvider>
-      <Sidebar>
-        <SidebarHeader />
-        <SidebarContent>
-          <SidebarGroup />
-          <SidebarGroup />
-        </SidebarContent>
-        <SidebarFooter />
-      </Sidebar>
-      <SidebarTrigger></SidebarTrigger>
-      {children}
-    </SidebarProvider>
+    // <SidebarProvider>
+    //   <Sidebar>
+    //     <SidebarHeader />
+    //     <SidebarContent>
+    //       <SidebarGroup />
+    //       <SidebarGroup />
+    //     </SidebarContent>
+    //     <SidebarFooter />
+    //   </Sidebar>
+    //   <SidebarTrigger></SidebarTrigger>
+    //   {children}
+    // </SidebarProvider>
+    { children }
   )
 }

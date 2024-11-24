@@ -6,7 +6,7 @@ import { redirect } from 'next/navigation'
 
 import { mongoDB } from './mongodb'
 
-export async function backstageLogin(formData: FormData) {
+export async function backstageLogin(formData: FormData): Promise<string> {
   if (
     formData.get('username') === process.env.BACKSTAGE_USERNAME &&
     formData.get('password') === process.env.BACKSTAGE_PASSWORD
@@ -14,15 +14,19 @@ export async function backstageLogin(formData: FormData) {
     const session = crypto.randomUUID()
     const expiresTime = new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000)
 
-    // store into server db
-    await mongoDB(async (db) => {
-      const backstageLoginDB = db?.collection('backstageLogin')
-      await backstageLoginDB?.insertOne({
-        userUUID: await generateUserUUID(headers()),
-        session: session,
-        expires: expiresTime.getTime(), // timestamp
+    try {
+      // store into server db
+      await mongoDB(async (db) => {
+        const backstageLoginDB = db?.collection('backstageLogin')
+        await backstageLoginDB?.insertOne({
+          userUUID: await generateUserUUID(headers()),
+          session: session,
+          expires: expiresTime.getTime(), // timestamp
+        })
       })
-    })
+    } catch {
+      return 'server'
+    }
 
     // store into user cookies
     await cookies().set('loginSession', session, {
@@ -30,6 +34,8 @@ export async function backstageLogin(formData: FormData) {
     })
 
     redirect('/' + process.env.BACKSTAGE_PATH + '/admin')
+  } else {
+    return 'pwd'
   }
 }
 
@@ -44,8 +50,6 @@ export async function canUserLogin(): Promise<boolean> {
         userUUID: await generateUserUUID(headers()),
         session,
       })
-
-      console.log(dbSession, session)
 
       if (dbSession !== null && dbSession !== undefined) {
         if (new Date() > dbSession?.expires) {
@@ -73,11 +77,9 @@ export async function generateUserUUID(headers: Headers) {
   const userAgent = headers.get('user-agent') || ''
   const ipAddress =
     headers.get('x-forwarded-for') || headers.get('remote-addr') || ''
-  const referer = headers.get('referer') || ''
   const acceptLanguage = headers.get('accept-language') || ''
 
   const uniqueString = `${userAgent}-${ipAddress}-${acceptLanguage}`
-  console.log(uniqueString)
 
   const hash = createHash('md5').update(uniqueString).digest('hex')
 

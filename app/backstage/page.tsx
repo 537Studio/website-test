@@ -27,7 +27,7 @@ export default async function page() {
             登入
           </CardTitle>
           <CardDescription className="text-sm text-slate-500">
-            和 537-Studio 一起畅聊
+            和 537 Studio 一起畅聊
           </CardDescription>
         </CardHeader>
 
