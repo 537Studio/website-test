@@ -1,6 +1,10 @@
+'use server'
+
 import { Sidebar } from 'lucide-react'
 import React from 'react'
+import { redirect } from 'next/navigation'
 
+import { canUserLogin } from '@/app/action/backstage'
 import {
   SidebarContent,
   SidebarFooter,
@@ -10,7 +14,15 @@ import {
   SidebarTrigger,
 } from '@/components/ui/sidebar'
 
-export default function layout({ children }: { children: React.ReactNode }) {
+export default async function layout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  if (!(await canUserLogin())) {
+    redirect('/' + process.env.BACKSTAGE_PATH)
+  }
+
   return (
     <SidebarProvider>
       <Sidebar>
