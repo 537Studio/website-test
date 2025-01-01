@@ -36,6 +36,6 @@ export default async function layout({
     //   <SidebarTrigger></SidebarTrigger>
     //   {children}
     // </SidebarProvider>
-    <div>    { children }</div>
+    <div> {children}</div>
   )
 }

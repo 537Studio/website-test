@@ -14,10 +14,7 @@ import {
 import { getLinks, getMembersFirst, getMembersSecond } from '@/configs/nav'
 
 import LanguageHandle from '../NavBar/LanguageHandle'
-
-const LightHandle = dynamic(() => import('../NavBar/LightHandle'), {
-  ssr: false,
-})
+import LightHandleProvider from '../NavBar/LightHandleProvider'
 
 interface footerProps {
   marginTop?: number
@@ -120,7 +117,7 @@ function Footer({ marginTop }: footerProps) {
       {/* Controls */}
       <div>
         <LanguageHandle />
-        <LightHandle />
+        <LightHandleProvider />
       </div>
     </div>
   )

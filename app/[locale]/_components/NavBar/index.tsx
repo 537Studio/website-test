@@ -22,8 +22,7 @@ import {
 import { getLinks } from '@/configs/nav'
 
 import LanguageHandle from './LanguageHandle'
-
-const LightHandle = dynamic(() => import('./LightHandle'), { ssr: false })
+import LightHandleProvider from './LightHandleProvider'
 
 export default function NavBar() {
   const t = useTranslations()
@@ -63,7 +62,7 @@ export default function NavBar() {
       <div className="flex items-center">
         {/* <LanguageHandle /> */}
         <LanguageHandle />
-        <LightHandle />
+        <LightHandleProvider />
         <DropdownMenu>
           <DropdownMenuTrigger className="block sm:hidden" asChild>
             <Button
