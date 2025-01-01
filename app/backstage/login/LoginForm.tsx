@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { delay } from 'lodash'
 
 import { backstageLogin } from '@/app/action/backstage'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
@@ -14,8 +13,9 @@ export default function LoginForm() {
   const [state, setState] = useState('')
 
   const actionHandle = async (formData: FormData) => {
-    // setState(await backstageLogin(formData))
-    setState('server')
+    // 'use server'
+    setState(await backstageLogin(formData))
+    // setState('server')
   }
 
   return (

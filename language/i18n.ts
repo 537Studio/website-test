@@ -16,20 +16,20 @@ import { notFound } from 'next/navigation'
 // Can be imported from a shared config
 export const locales = ['en_us', 'zh_cn', 'zh_hk']
 
-export default getRequestConfig(async ({ locale }) => {
+export default getRequestConfig(async ({ requestLocale }) => {
   // Validate that the incoming `locale` parameter is valid
-  if (
-    (locale as any) !== process.env.BACKSTAGE_PATH &&
-    (locale as any) !== '/backstage'
-  ) {
-    if (!locales.includes(locale as any)) notFound()
+  let locale = await requestLocale
+
+  if (locale !== process.env.BACKSTAGE_PATH && locale !== '/backstage') {
+    if (!locales.includes(locale as string)) {
+      notFound()
+    }
+
     const file = (await import(`./${locale}.json`)).default
     // console.log(JSON.stringify(file))
 
-    return {
-      messages: file,
-    }
+    return { locale, messages: file }
   } else {
-    return { messages: [] }
+    return { locale, messages: [] }
   }
 })
