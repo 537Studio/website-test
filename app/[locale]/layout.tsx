@@ -6,7 +6,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 
 import NavBar from './_components/NavBar'
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata() {
   const t = await getTranslations()
   return {
     title: t('title'),
@@ -24,7 +24,7 @@ export default async function RootLayout({
   params: { locale: string }
 }) {
   // const locale = 'zh_cn'
-  const locale = params.locale
+  const { locale } = await params
   // const messages = useMessages()
   const messages = await getMessages()
 
