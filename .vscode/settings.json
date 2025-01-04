@@ -2,5 +2,9 @@
   "i18n-ally.localesPaths": ["language"],
   "i18n-ally.keystyle": "nested",
   "i18n-ally.sourceLanguage": "zh",
-  "cSpell.words": ["pipishan", "xinpro"]
+  "cSpell.words": [
+    "pipishan",
+    "xinpro"
+  ],
+  "git.ignoreLimitWarning": true
 }
