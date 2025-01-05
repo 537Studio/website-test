@@ -5,15 +5,17 @@ import { useTranslations } from 'next-intl'
 
 import { getContacts } from '@/configs/indexPage'
 
-export default function Contact() {
+export default function Contact({ showText }: { showText: boolean }) {
   const t = useTranslations()
   const contacts = getContacts(t)
 
   return (
     <div className="relative m-10">
-      <h3 className="ml-1 mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
-        {t('FindUs')}
-      </h3>
+      {showText && (
+        <h3 className="ml-1 mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
+          {t('FindUs')}
+        </h3>
+      )}
       {/*
         <div className="mt-10 grid gap-3 [grid:150px_150px_/_33.3%_33.3%_33.3%] sm:gap-10 sm:[grid:240px_240px_240px_/_auto_auto] md:[grid:220px_220px_/_auto_auto_auto] lg:[grid:200px_200px_/_auto_auto_auto_auto] xl:[grid:200px_/_auto_auto_auto_auto_auto]">
         */}

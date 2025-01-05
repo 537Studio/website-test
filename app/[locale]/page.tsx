@@ -14,7 +14,7 @@ export default function Home() {
       <ProductsCards></ProductsCards>
       <MemberCards></MemberCards>
       {/* <JoinUs></JoinUs> */}
-      <Contact></Contact>
+      <Contact showText={true}></Contact>
       <Footer></Footer>
     </main>
   )
