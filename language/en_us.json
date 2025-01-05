@@ -18,9 +18,6 @@
   "CBMSIDShortDescription": "First of all",
   "MemberCardTitle": "Members",
   "MemberCardBilibiliShow": "none",
-  "errCannotConnect": "Cannot to connect to the database",
-  "errDbUriUndefined": "DB_URI is undefined in .env",
-  "errNotEnoughProducts": "There isn't enough product information in the database",
   "Sean537ShortDescritionName": "Github: @Sean537",
   "Sean537ShortDescritionHref": "https://space.bilibili.com/3493272892738031",
   "Sean537Description": "Stay hungry, stay foolish. \n Co-founder of 537 Studio.",
@@ -45,5 +42,7 @@
   "joinUsDescription": "We pursue innovation. Join us to gain true knowledge through learning and grow through practice.",
   "537SoftwareBar": "537 Software Bar",
   "FindUs": "Contacts",
-  "ticketDeveloping": "Sorry, the work order service is under development, but you can still contact us through the following methods"
+  "ticketDeveloping": "Sorry, the work order service is under development, but you can still contact us through the following methods",
+  "softwareTitle": "Products",
+  "softwareIntroduce": "537Studio speaks with strength, Create every product with care"
 }

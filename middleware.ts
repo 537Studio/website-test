@@ -47,7 +47,7 @@ export const config = {
   matcher: [
     '/',
     '/(zh_cn|en_us|zh_hk)/:path*',
-    `/admin537/:path*`, // script:needToReplace
+    `/${backstagePath}/:path*`, // script:needToReplace
     '/backstage/:path*',
   ],
   // .map((item) => item.),

@@ -16,9 +16,6 @@
   "537ClockShortDescription": "少即是多",
   "CBMSID": "計算搬桶學號",
   "CBMSIDShortDescription": "初出茅廬",
-  "errCannotConnect": "無法連線到資料庫",
-  "errDbUriUndefined": "DB_URI 沒有在 .env 中定義",
-  "errNotEnoughProducts": "資料庫中沒有足夠的產品信息",
   "MemberCardTitle": "團隊成員",
   "MemberCardBilibiliShow": "一般",
   "Sean537ShortDescritionName": "Bilibili: @山地奧斯卡537",
@@ -45,5 +42,7 @@
   "joinUsDescription": "我們追求創新。加入我們，在學習中得出真知，在實踐中獲得成長。",
   "537SoftwareBar": "537軟件吧",
   "FindUs": "聯絡我們",
-  "ticketDeveloping": "很抱歉 工單服務正在研發中 但您仍可以透過以下方式聯絡我們"
+  "ticketDeveloping": "很抱歉 工單服務正在研發中 但您仍可以透過以下方式聯絡我們",
+  "softwareTitle": "產品",
+  "softwareIntroduce": "537Studio用實力說話, 用心打造每一款產品"
 }
