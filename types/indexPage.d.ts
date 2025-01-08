@@ -1,22 +1,23 @@
+import { StartupSnapshot } from 'v8'
 import { StaticImageData } from 'next/image'
 
 type showItems = showItem[]
 
 interface showItem {
-  name: string
-  shortDescription: string
+  name: translationKey
+  shortDescription: translationKey
   image: StaticImageData | string
   size: string
   version: string
-  platform: string[]
+  platform: (translationKey | string)[]
 }
 
 type showMembers = showMember[]
 interface showMember {
-  name: string
+  name: translationKey | string
   shortDescription: shortDescription
   image: StaticImageData
-  description: string
+  description: translationKey
   gitee?: membersPlatform
   github?: membersPlatform
   bilibili?: membersPlatform
@@ -27,7 +28,7 @@ interface showMember {
 
 type contacts = contact[]
 interface contact {
-  name: string
+  name: translationKey
   icon: any
   // icon: React.ReactNode
   // icon: ReactNode
@@ -35,12 +36,12 @@ interface contact {
 }
 
 interface shortDescription {
-  name: string
-  href?: string
+  name: translationKey | string
+  href?: translationKey | string
 }
 
 interface membersPlatform {
-  name: string
+  name: string | translationKey
   href: string
-  show?: string
+  show?: boolean | translationKey
 }
