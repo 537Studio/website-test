@@ -1,16 +1,18 @@
 import React from 'react'
-import { getTranslations } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { getShowMembers } from '@/configs/indexPage'
 import { membersPlatform } from '@/types/indexPage'
 import capitalizeWords from '@/util/capitalizeWords'
+import translate from '@/util/traslate'
 
 import MemberProvider from './MemberProvider'
 
 export default async function MemberCards() {
   // const t = useTranslations()
   const t = await getTranslations()
+  const locale = await getLocale()
   // const t = (string: string) => string
   const showMembers = getShowMembers(t)
   const memberExcludeKeys = ['name', 'shortDescription', 'description', 'image']
@@ -34,18 +36,28 @@ export default async function MemberCards() {
             {/*The avatar of the member*/}
             <div className="flex items-center gap-3">
               <Avatar>
-                <AvatarImage src={member.image.src} alt={member.name} />
+                <AvatarImage
+                  src={member.image.src}
+                  alt={translate(locale, member.name) as string}
+                />
                 <AvatarFallback>
-                  {member.name.charAt(0).toUpperCase()}
+                  {(translate(locale, member.name) as string)
+                    .charAt(0)
+                    .toUpperCase()}
                 </AvatarFallback>
               </Avatar>
               <div className="flex flex-col justify-center">
                 <div className="text-lg font-semibold leading-5">
-                  {member.name}
+                  {translate(locale, member.name)}
                 </div>
                 <div className="text-sm text-slate-800 dark:text-slate-300">
-                  <a href={member.shortDescription.href} target="_blank">
-                    {member.shortDescription.name}
+                  <a
+                    href={
+                      translate(locale, member.shortDescription.href) as string
+                    }
+                    target="_blank"
+                  >
+                    {translate(locale, member.shortDescription.name)}
                   </a>
                 </div>
               </div>
@@ -53,9 +65,11 @@ export default async function MemberCards() {
             {/*The description of the member*/}
             <div className="leading-7">
               {/*member.description*/}
-              {member.description.split('\n').map((line, index) => (
-                <p key={line.toString() + index}>{line}</p>
-              ))}
+              {(translate(locale, member.description) as string)
+                .split('\n')
+                .map((line, index) => (
+                  <p key={line.toString() + index}>{line}</p>
+                ))}
             </div>
             {/*The accounts of the member*/}
             <div className="flex flex-col items-center justify-start gap-5 sm:flex-row">

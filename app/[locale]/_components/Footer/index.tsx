@@ -22,8 +22,8 @@ interface footerProps {
 function Footer({ marginTop }: footerProps) {
   const t = useTranslations()
   const links = getLinks(t)
-  const membersFirst = getMembersFirst(t)
-  const membersSecond = getMembersSecond(t)
+  // const membersFirst = getMembersFirst(t)
+  // const membersSecond = getMembersSecond(t)
 
   let realMarginTop = 28
   if (marginTop !== undefined) {
@@ -70,7 +70,7 @@ function Footer({ marginTop }: footerProps) {
           </NavigationMenu>
           <NavigationMenu>
             <NavigationMenuList className="flex flex-col !items-start gap-3">
-              {membersFirst.map((item, index) => {
+              {/*{membersFirst.map((item, index) => {
                 return (
                   <NavigationMenuItem
                     key={'NavBarMenuLinkKeyIndex' + index}
@@ -83,12 +83,12 @@ function Footer({ marginTop }: footerProps) {
                     </Link>
                   </NavigationMenuItem>
                 )
-              })}
+              })}*/}
             </NavigationMenuList>
           </NavigationMenu>
           <NavigationMenu>
             <NavigationMenuList className="flex flex-col !items-start gap-3">
-              {membersSecond.map((item, index) => {
+              {/*{membersSecond.map((item, index) => {
                 return (
                   <NavigationMenuItem
                     key={'NavBarMenuLinkKeyIndex' + index}
@@ -101,7 +101,7 @@ function Footer({ marginTop }: footerProps) {
                     </Link>
                   </NavigationMenuItem>
                 )
-              })}
+              })}*/}
             </NavigationMenuList>
           </NavigationMenu>
         </div>

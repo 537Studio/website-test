@@ -206,7 +206,7 @@ export const getShowMembers = (t: any): showMembersType => [
     },
     blog: {
       name: {
-        en_us: 'Personal Blog',
+        en_us: 'Personal Website',
         zh_cn: '个人小站',
         zh_hk: '個人小站',
       },
@@ -244,7 +244,11 @@ export const getShowMembers = (t: any): showMembersType => [
   },
   {
     image: yz_mm,
-    name: t('yz_mm'),
+    name: {
+      zh_cn: '一只铭铭',
+      zh_hk: '一只銘銘',
+      en_us: 'yz_mm',
+    },
     shortDescription: {
       name: 'http://yz-mm.fun/',
       href: 'http://yz-mm.fun/',
@@ -271,7 +275,11 @@ export const getShowMembers = (t: any): showMembersType => [
       href: 'mailto:3141600296@qq.com',
     },
     blog: {
-      name: t('yz_mmBlog'),
+      name: {
+        en_us: 'Personal Homepage',
+        zh_hk: '個人主頁',
+        zh_cn: '个人主页',
+      },
       href: 'https://yz-mm.fun/',
     },
   },
