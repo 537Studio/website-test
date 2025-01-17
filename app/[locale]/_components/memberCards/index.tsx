@@ -103,8 +103,14 @@ export default async function MemberCards() {
                         target="_blank"
                       >
                         {isAddAt +
-                          (showMembers[index][contactMethod] as membersPlatform)
-                            .name}
+                          translate(
+                            locale,
+                            (
+                              showMembers[index][
+                                contactMethod
+                              ] as membersPlatform
+                            ).name,
+                          )}
                       </a>
                     </div>
                   )

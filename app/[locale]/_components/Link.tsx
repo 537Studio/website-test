@@ -23,7 +23,7 @@ const Link: React.FC<LinkProps> = ({ href, locale, children, ...props }) => {
   }
 
   return (
-    <NextLink href={updatedHref} {...props}>
+    <NextLink href={updatedHref} target="_blank" {...props}>
       {children}
     </NextLink>
   )

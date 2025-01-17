@@ -47,7 +47,7 @@ export default function NavBar() {
               {links.map((item, index) => {
                 return (
                   <NavigationMenuItem key={'NavBarMenuLinkKeyIndex' + index}>
-                    <Link href={item.link} legacyBehavior passHref>
+                    <Link href={item.link} legacyBehavior>
                       <NavigationMenuLink className="flex items-center gap-1 text-slate-400 dark:text-slate-600">
                         <span className="text-[15px]">{item.name}</span>
                       </NavigationMenuLink>
