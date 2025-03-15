@@ -1,3 +1,4 @@
+
 'use server'
 
 import React from 'react'
@@ -14,7 +15,7 @@ export default async function page() {
         {t('ticketDeveloping')}
       </h3>
       <div className="w-10/12">
-        <Contact showText={false}></Contact>
+        <Contact showText={false} locale={''}></Contact>
       </div>
     </main>
   )

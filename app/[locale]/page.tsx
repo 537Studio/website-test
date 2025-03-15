@@ -1,3 +1,6 @@
+
+import { getLocale } from 'next-intl/server'
+
 import Contact from './_components/Contact'
 import Footer from './_components/Footer'
 import MemberCards from './_components/memberCards'
@@ -7,15 +10,16 @@ import Title from './_components/Title'
 
 import './app.css'
 
-export default function Home() {
+export default async function Home() {
+  const locale = await getLocale()
   return (
     <main className="sb relative h-full w-full overflow-x-clip">
       <Title></Title>
       <ProductsCards></ProductsCards>
       <MemberCards></MemberCards>
       {/* <JoinUs></JoinUs> */}
-      <Contact showText={true}></Contact>
+      <Contact showText={true} locale={locale}></Contact>
       <Footer></Footer>
     </main>
   )
-}
+} 
