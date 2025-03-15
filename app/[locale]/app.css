@@ -1,0 +1,30 @@
+@keyframes cardsLoad {
+  0% {
+    opacity: 0;
+    scale: 0.95;
+  }
+  30% {
+    opacity: 0;
+    scale: 0.95;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.cardsAnimation {
+  /* Selector will select all Markdown element */
+  animation-timeline: view() !important;
+  animation: cardsLoad ease;
+  animation-range-end: cover 40%;
+  /* animation-range-start: cover -30%; */
+  opacity: 1;
+  scale: 1;
+}
+
+@media screen and (min-width: 440px) {
+  .productsCard {
+    height: 90%;
+  }
+}
