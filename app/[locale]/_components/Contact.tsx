@@ -4,8 +4,15 @@ import React from 'react'
 import { useTranslations } from 'next-intl'
 
 import { getContacts } from '@/configs/indexPage'
+import translate from '@/util/traslate'
 
-export default function Contact({ showText }: { showText: boolean }) {
+export default function Contact({
+  showText,
+  locale,
+}: {
+  showText: boolean
+  locale: string
+}) {
   const t = useTranslations()
   const contacts = getContacts(t)
 
@@ -33,7 +40,7 @@ export default function Contact({ showText }: { showText: boolean }) {
             >
               {icon}
               <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
-                {contact.name}
+                {translate(locale, contact.name)}
               </h4>
             </div>
           )
